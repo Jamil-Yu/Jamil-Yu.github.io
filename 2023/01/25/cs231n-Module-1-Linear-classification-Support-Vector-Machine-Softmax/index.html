@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://jamil-yu.github.io/img/cs231n-note3.jpg">
 <meta property="og:image" content="http://jamil-yu.github.io/img/cs231n-note4.jpg">
 <meta property="article:published_time" content="2023-01-25T13:37:07.000Z">
-<meta property="article:modified_time" content="2023-01-25T14:19:34.171Z">
+<meta property="article:modified_time" content="2023-01-25T14:25:59.374Z">
 <meta property="article:author" content="Jamil Yu">
 <meta property="article:tag" content="notes">
 <meta name="twitter:card" content="summary_large_image">
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          322 words
+          505 words
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          3 mins
+          5 mins
         
       </span>
     
@@ -297,7 +297,12 @@ Vector Machine loss</h4>
 Machine</strong>(SVM) loss.</p>
 <p>Look at <span class="math inline">\(x_i\)</span> who has a label
 <span class="math inline">\(y_i\)</span>. So <span
-class="math inline">\(f(x_i,**W**)\)</span></p>
+class="math inline">\(f(x_i,\mathbf{W})\)</span> is a vector of score of
+each labels. The j-th class socre is <span
+class="math inline">\(s_j=f(x_i,\mathbf{W})_j\)</span>. The Multiclass
+SVM loss for the i-th example is then formalized as: <span
+class="math display">\[L_i=\sum_{j\neq
+y_i}max(0,s_j-s_y_i+\Delta)\]</span></p>
 
                 
               </div>
