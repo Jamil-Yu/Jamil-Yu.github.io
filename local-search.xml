@@ -8,7 +8,7 @@
     <link href="/2023/01/25/cs231n-Module-1-Linear-classification-Support-Vector-Machine-Softmax/"/>
     <url>/2023/01/25/cs231n-Module-1-Linear-classification-Support-Vector-Machine-Softmax/</url>
     
-    <content type="html"><![CDATA[<figure><img src="/img/cs231n-note3.jpg" alt="note1" /><figcaption aria-hidden="true">note1</figcaption></figure><figure><img src="/img/cs231n-note4.jpg" alt="note1" /><figcaption aria-hidden="true">note1</figcaption></figure><h3 id="loss-function">Loss function</h3>]]></content>
+    <content type="html"><![CDATA[<figure><img src="/img/cs231n-note3.jpg" alt="note1" /><figcaption aria-hidden="true">note1</figcaption></figure><figure><img src="/img/cs231n-note4.jpg" alt="note1" /><figcaption aria-hidden="true">note1</figcaption></figure><h3 id="loss-function">Loss function</h3><p>How to measure our unhappiness with outcomes? <spanclass="math inline">\(\rightarrow\)</span> a <strong>lossfunction</strong>(also called as the <strong>cost function</strong> orthe <strong>objective</strong>)</p><h4 id="multiclass-support-vector-machine-loss">Multiclass SupportVector Machine loss</h4><p>A commenly used loss: <strong>Multiclass Support VectorMachine</strong>(SVM) loss.</p>]]></content>
     
     
     
