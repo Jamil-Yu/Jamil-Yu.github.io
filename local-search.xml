@@ -4,24 +4,11 @@
   
   
   <entry>
-    <title>paper</title>
+    <title>[paper] ResNet-2016</title>
     <link href="/2023/01/25/paper-ResNet-2016/"/>
     <url>/2023/01/25/paper-ResNet-2016/</url>
     
-    <content type="html"><![CDATA[]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>[paper] ResNet-2016</title>
-    <link href="/2023/01/25/paper/"/>
-    <url>/2023/01/25/paper/</url>
-    
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<h1 id="deep-residual-learning-for-image-recognition">Deep ResidualLearning for Image Recognition</h1><h2 id="abstract">Abstract</h2><p><strong>residual learning framwork</strong> <spanclass="math inline">\(\rightarrow\)</span> ease the training, deeper</p>]]></content>
     
     
     
@@ -59,7 +46,7 @@
     <link href="/2023/01/25/cs231n-Module-1-Linear-classification-Support-Vector-Machine-Softmax/"/>
     <url>/2023/01/25/cs231n-Module-1-Linear-classification-Support-Vector-Machine-Softmax/</url>
     
-    <content type="html"><![CDATA[<p>After two photos, I will take my notes through Markdown.</p><figure><img src="/img/cs231n-note3.jpg" alt="note3" /><figcaption aria-hidden="true">note3</figcaption></figure><figure><img src="/img/cs231n-note4.jpg" alt="note4" /><figcaption aria-hidden="true">note4</figcaption></figure><h3 id="loss-function">Loss function</h3><p>How to measure our unhappiness with outcomes? <spanclass="math inline">\(\rightarrow\)</span> a <strong>lossfunction</strong>(also called as the <strong>cost function</strong> orthe <strong>objective</strong>)</p><h4 id="multiclass-support-vector-machine-loss">Multiclass SupportVector Machine loss</h4><p>A commenly used loss: <strong>Multiclass Support VectorMachine</strong>(SVM) loss.</p><p>Look at <span class="math inline">\(x_i\)</span> who has a label<span class="math inline">\(y_i\)</span>. So <spanclass="math inline">\(f(x_i,\mathbf{W})\)</span> is a vector of score ofeach labels. The j-th class socre is <spanclass="math inline">\(s_j=f(x_i,\mathbf{W})_j\)</span>. The MulticlassSVM loss for the i-th example is then formalized as: <spanclass="math display">\[L_i=\sum_{j\neqy_i}max(0,s_j-s_y_i+\Delta)\]</span></p>]]></content>
+    <content type="html"><![CDATA[<p>After two photos, I will take my notes through Markdown.</p><figure><img src="/img/cs231n-note3.jpg" alt="note3" /><figcaption aria-hidden="true">note3</figcaption></figure><figure><img src="/img/cs231n-note4.jpg" alt="note4" /><figcaption aria-hidden="true">note4</figcaption></figure><h3 id="loss-function">Loss function</h3><p>How to measure our unhappiness with outcomes? <spanclass="math inline">\(\rightarrow\)</span> a <strong>lossfunction</strong>(also called as the <strong>cost function</strong> orthe <strong>objective</strong>)</p><h4 id="multiclass-support-vector-machine-loss">Multiclass SupportVector Machine loss</h4><p>A commenly used loss: <strong>Multiclass Support VectorMachine</strong>(SVM) loss.</p><p>Look at <span class="math inline">\(x_i\)</span> who has a label<span class="math inline">\(y_i\)</span>. So <spanclass="math inline">\(f(x_i,\mathbf{W})\)</span> is a vector of score ofeach labels. The j-th class socre is <spanclass="math inline">\(s_j=f(x_i,\mathbf{W})_j\)</span>. The MulticlassSVM loss for the i-th example is then formalized as: <spanclass="math display">\[L_i=\sum_{j \neq y_i} max(0,s_j-s_y_i+\Delta)\]</span></p>]]></content>
     
     
     
