@@ -4,11 +4,24 @@
   
   
   <entry>
+    <title>Modelling Group: introduction about Markdown and LaTeX</title>
+    <link href="/2023/01/25/Modelling-Group-introduction-about-Markdown-and-LaTeX/"/>
+    <url>/2023/01/25/Modelling-Group-introduction-about-Markdown-and-LaTeX/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hello world</title>
     <link href="/2023/01/23/Hello-world/"/>
     <url>/2023/01/23/Hello-world/</url>
     
-    <content type="html"><![CDATA[<h1 id="hello-woeld">HELLO WOELD</h1><h2 id="my-first-try-of-blog">My First Try of Blog</h2><p>Thanks to the help of Wang Zhili and Hu shukai, I managed to build myfirst blog today.</p><p>My blog will all in English, recording some courses notes and dailyfeelings.</p><p>test of math: <span class="math display">\[\frac{1}{2}\]</span> <spanclass="math display">\[\rightarrow Rightarrow\]</span></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="hello-woeld">HELLO WOELD</h1><h2 id="my-first-try-of-blog">My First Try of Blog</h2><p>Thanks to the help of Wang Zhili and Hu shukai, I managed to build myfirst blog today.</p><p>My blog will all in English, recording some courses notes and dailyfeelings.</p>]]></content>
     
     
     
