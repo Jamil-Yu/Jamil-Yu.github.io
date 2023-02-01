@@ -276,30 +276,27 @@
             
               <div class="markdown-body">
                 
-                <h1 id="markdown">Markdown</h1>
+                <h1>Markdown</h1>
 <p>What is markdown?</p>
 <ul>
 <li>language(light)</li>
 <li>easy to control</li>
 </ul>
-<h2 id="titles">Titles</h2>
-<h1 id="im-1">I'm 1</h1>
-<h2 id="im-2">I'm 2</h2>
-<h3 id="im-3">I'm 3</h3>
-<h4 id="im-4">I'm 4</h4>
-<h5 id="im-5">I'm 5</h5>
-<h6 id="im-6">I'm 6</h6>
-<p class="heading" id="im-7">I'm 7</p>
+<h2 id="Titles">Titles</h2>
+<h1>I’m 1</h1>
+<h2 id="I’m-2">I’m 2</h2>
+<h3 id="I’m-3">I’m 3</h3>
+<h4 id="I’m-4">I’m 4</h4>
+<h5 id="I’m-5">I’m 5</h5>
+<h6 id="I’m-6">I’m 6</h6>
+<p>####### I’m 7</p>
 <p>for title: 1-6, no 7</p>
-<h2 id="bold-italic-bolditalic">bold, italic, bold&amp;italic</h2>
+<h2 id="bold-italic-bold-italic">bold, italic, bold&amp;italic</h2>
 <p>I am a <em>sentence</em>. I like eat <strong>beef</strong>.</p>
-<p>I am a <strong><em>student</em></strong>.</p>
+<p>I am a <em><strong>student</strong></em>.</p>
 <h2 id="links-photos">links, photos</h2>
 <p><a target="_blank" rel="noopener" href="https://www.baidu.com">Baidu</a></p>
-<figure>
-<img src="/img/me.jpg" srcset="/img/loading.gif" lazyload alt="me" />
-<figcaption aria-hidden="true">me</figcaption>
-</figure>
+<p><img src="/img/me.jpg" srcset="/img/loading.gif" lazyload alt="me"></p>
 <h2 id="quote">quote</h2>
 <blockquote>
 <p>Lu Xun: people should eat.</p>
@@ -309,20 +306,23 @@
 <li>one
 <ul>
 <li>two</li>
-</ul></li>
+</ul>
+</li>
 <li>three
 <ul>
 <li>four
 <ul>
 <li>five</li>
-</ul></li>
-</ul></li>
 </ul>
-<ol type="1">
+</li>
+</ul>
+</li>
+</ul>
+<ol>
 <li>1</li>
 <li>3</li>
 </ol>
-<p>if no " ":</p>
+<p>if no &quot; &quot;:</p>
 <p>1.123</p>
 <h2 id="code">code</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">sum</span>=<span class="hljs-number">0</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):<br>  <span class="hljs-built_in">sum</span> += i<br></code></pre></td></tr></table></figure>
@@ -330,89 +330,74 @@
 <h2 id="table">table</h2>
 <table>
 <thead>
-<tr class="header">
-<th style="text-align: left;">Header One</th>
-<th style="text-align: left;">Header Two</th>
+<tr>
+<th style="text-align:left">Header One</th>
+<th style="text-align:left">Header Two</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">Item One</td>
-<td style="text-align: left;">Item Two</td>
+<tr>
+<td style="text-align:left">Item One</td>
+<td style="text-align:left">Item Two</td>
 </tr>
 </tbody>
 </table>
 <h2 id="others">others</h2>
-<p><del>I eat rubbish yesterday</del></p>
+<p><s>I eat rubbish yesterday</s></p>
 <p><u>this sentence is important</u></p>
-<p>I must do
-something.<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span
-class="hint--top hint--rounded"
-aria-label="guess">[1]</span></a></sup></p>
+<p>I must do something.<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="guess">[1]</span></a></sup></p>
 <h2 id="math">math</h2>
 <p>We all know that 2+3=5</p>
-<p>we all know that <span
-class="math inline">\(1+\frac{1}{2}=\frac{3}{2}\)</span>。<span
-class="math inline">\(2^2=4\)</span>, <span
-class="math inline">\(CO_2\)</span>, <span
-class="math inline">\(x_{11}\)</span> <span class="math display">\[
-1+\frac{1}{2}
-\]</span></p>
-<p><span class="math display">\[
-\begin{pmatrix}
-x_{11} &amp; x_{12} \\
-x_{21} &amp; x_{22}
-\end{pmatrix}
-\]</span></p>
-<p><span class="math display">\[
-X=\sum^{n}_{i=1} \frac{\Pi_{j=1}^{m}x_{ij}}{\sigma_{i}k_i^2}
-\]</span></p>
-<p><span class="math display">\[
-\begin{equation}
-x=\frac{\partial T}{\partial V}c_{Boltzman}\alpha_x
-\end{equation}
-\]</span></p>
-<p><span class="math display">\[
-\begin{equation*}
-y=\frac{\partial T}{\partial M}c_{Boltzman}\alpha_y
-\end{equation*}
-\]</span></p>
-<p><span class="math display">\[
-\begin{equation}
-z=\frac{\partial T}{\partial K}c_{Boltzman}\alpha_z
-\end{equation}
-\]</span></p>
-<p><span class="math display">\[
-\begin{align}
-1&amp;=0+1\\
-2&amp;=1+1-0-1+1\\
-444&amp;=400+40+4
-\end{align}
-\]</span></p>
-<p><span class="math display">\[
-\begin{align*}
-a+b+c&amp;=x\\
-x&amp;=a+b+c
-\end{align*}
-\]</span></p>
-<p><span class="math display">\[
-A+B\rightarrow C\\
-\]</span> (of course not end…)</p>
-<hr />
-<h1 id="latex">LaTex</h1>
-<p><span class="math inline">\(\LaTeX\)</span></p>
-<section class="footnotes">
-<div class="footnote-list">
-<ol>
-<li>
-<span id="fn:1" class="footnote-text"><span>guess
-<a href="#fnref:1" rev="footnote" class="footnote-backref">
-↩︎</a></span></span>
-</li>
-</ol>
-</div>
-</section>
-
+<p>we all know that $1+\frac{1}{2}=\frac{3}{2}$。$2^2=4$, $CO_2$, $x_{11}$<br>
+$$<br>
+1+\frac{1}{2}<br>
+$$</p>
+<p>$$<br>
+\begin{pmatrix}<br>
+x_{11} &amp; x_{12} \<br>
+x_{21} &amp; x_{22}<br>
+\end{pmatrix}<br>
+$$</p>
+<p>$$<br>
+X=\sum^{n}<em>{i=1} \frac{\Pi</em>{j=1}^{m}x_{ij}}{\sigma_{i}k_i^2}<br>
+$$</p>
+<p>$$<br>
+\begin{equation}<br>
+x=\frac{\partial T}{\partial V}c_{Boltzman}\alpha_x<br>
+\end{equation}<br>
+$$</p>
+<p>$$<br>
+\begin{equation*}<br>
+y=\frac{\partial T}{\partial M}c_{Boltzman}\alpha_y<br>
+\end{equation*}<br>
+$$</p>
+<p>$$<br>
+\begin{equation}<br>
+z=\frac{\partial T}{\partial K}c_{Boltzman}\alpha_z<br>
+\end{equation}<br>
+$$</p>
+<p>$$<br>
+\begin{align}<br>
+1&amp;=0+1\<br>
+2&amp;=1+1-0-1+1\<br>
+444&amp;=400+40+4<br>
+\end{align}<br>
+$$</p>
+<p>$$<br>
+\begin{align*}<br>
+a+b+c&amp;=x\<br>
+x&amp;=a+b+c<br>
+\end{align*}<br>
+$$</p>
+<p>$$<br>
+A+B\rightarrow C\<br>
+$$<br>
+(of course not end…)</p>
+<hr>
+<h1>LaTex</h1>
+<p>$\LaTeX$</p>
+<section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>guess
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
                 
               </div>
             
@@ -481,7 +466,7 @@ A+B\rightarrow C\\
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/01/25/cs231n-Module-1-Image-Classification-Data-driven-Approach-k-Nearest-Neighbor-train-val-test-splits/" title="[cs231n] Module 1-Image Classification: Data-driven Approach, k-Nearest Neighbor, train/val/test splits">
+                      <a href="/2023/01/25/%5B1%5Dcs231n-Module-1-Image-Classification-Data-driven-Approach-k-Nearest-Neighbor-train-val-test-splits/" title="[cs231n] Module 1-Image Classification: Data-driven Approach, k-Nearest Neighbor, train/val/test splits">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">[cs231n] Module 1-Image Classification: Data-driven Approach, k-Nearest Neighbor, train/val/test splits</span>
                         <span class="visible-mobile">Previous</span>
