@@ -16,17 +16,17 @@
   <meta name="author" content="Jamil Yu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="After two photos, I will take my notes through Markdown.   Loss function How to measure our unhappiness with outcomes? $\rightarrow$ a loss function(also called as the cost function or the objective)">
+    <meta name="description" content="After two photos, I will take my notes through Markdown.   note3    note4  Loss function How to measure our unhappiness with outcomes? \(\rightarrow\) a loss function(also called as the cost function">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[cs231n] Module 1-Linear classification: Support Vector Machine, Softmax">
 <meta property="og:url" content="http://jamil-yu.github.io/2023/01/25/[2]cs231n-Module-1-Linear-classification-Support-Vector-Machine-Softmax/index.html">
 <meta property="og:site_name" content="Jamil">
-<meta property="og:description" content="After two photos, I will take my notes through Markdown.   Loss function How to measure our unhappiness with outcomes? $\rightarrow$ a loss function(also called as the cost function or the objective)">
+<meta property="og:description" content="After two photos, I will take my notes through Markdown.   note3    note4  Loss function How to measure our unhappiness with outcomes? \(\rightarrow\) a loss function(also called as the cost function">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://jamil-yu.github.io/img/cs231n-note3.jpg">
 <meta property="og:image" content="http://jamil-yu.github.io/img/cs231n-note4.jpg">
 <meta property="article:published_time" content="2023-01-25T13:37:07.000Z">
-<meta property="article:modified_time" content="2023-02-01T14:28:00.460Z">
+<meta property="article:modified_time" content="2023-02-01T14:34:54.781Z">
 <meta property="article:author" content="Jamil Yu">
 <meta property="article:tag" content="notes">
 <meta name="twitter:card" content="summary_large_image">
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k words
+          1.4k words
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          10 mins
+          12 mins
         
       </span>
     
@@ -278,34 +278,73 @@
               <div class="markdown-body">
                 
                 <p>After two photos, I will take my notes through Markdown.</p>
-<p><img src="/img/cs231n-note3.jpg" srcset="/img/loading.gif" lazyload alt="note3"></p>
-<p><img src="/img/cs231n-note4.jpg" srcset="/img/loading.gif" lazyload alt="note4"></p>
-<h3 id="Loss-function">Loss function</h3>
-<p>How to measure our unhappiness with outcomes? $\rightarrow$ a <strong>loss function</strong>(also called as the <strong>cost function</strong> or the <strong>objective</strong>)</p>
-<h4 id="Multi-class-Support-Vector-Machine-loss">Multi-class Support Vector Machine loss</h4>
-<p class = "danger">Can't well understand this part :(</p>
-<p>A commonly used loss: <strong>Multi-class Support Vector Machine</strong>(SVM) loss.</p>
-<p>Look at $x_i$ who has a label $y_i$. So $f(x_i,\mathbf{W})$ is a vector of score of each labels. The j-th class score is $s_j=f(x_i,\mathbf{W})<em>j$. The Multi-class SVM loss for the i-th example is then formalized as:<br>
-$$<br>
-L_i = \sum</em>{j \neq y_i} max(0,s_j-s_{y_i}+ \Delta )<br>
-$$</p>
+<figure>
+<img src="/img/cs231n-note3.jpg" srcset="/img/loading.gif" lazyload alt="note3" />
+<figcaption aria-hidden="true">note3</figcaption>
+</figure>
+<figure>
+<img src="/img/cs231n-note4.jpg" srcset="/img/loading.gif" lazyload alt="note4" />
+<figcaption aria-hidden="true">note4</figcaption>
+</figure>
+<h3 id="loss-function">Loss function</h3>
+<p>How to measure our unhappiness with outcomes? <span
+class="math inline">\(\rightarrow\)</span> a <strong>loss
+function</strong>(also called as the <strong>cost function</strong> or
+the <strong>objective</strong>)</p>
+<h4 id="multi-class-support-vector-machine-loss">Multi-class Support
+Vector Machine loss</h4>
+<p class="danger">
+Can't well understand this part :(
+</p>
+<p>A commonly used loss: <strong>Multi-class Support Vector
+Machine</strong>(SVM) loss.</p>
+<p>Look at <span class="math inline">\(x_i\)</span> who has a label
+<span class="math inline">\(y_i\)</span>. So <span
+class="math inline">\(f(x_i,\mathbf{W})\)</span> is a vector of score of
+each labels. The j-th class score is <span
+class="math inline">\(s_j=f(x_i,\mathbf{W})_j\)</span> . The Multi-class
+SVM loss for the i-th example is then formalized as: <span
+class="math display">\[
+L_i = \sum_{j \neq y_i} max(0,s_j-s_{y_i}+ \Delta )
+\]</span></p>
 <blockquote>
-<p><strong>Ex</strong> There are three classes and the score $ s=[13,-7,11] $. We can see that the first is correct. That means $y_i = 1$ Now we let $\Delta=10$ and then put it into <strong>SVM</strong> we defined before. We can see:</p>
+<p><strong>Ex</strong> There are three classes and the score $
+s=[13,-7,11] $. We can see that the first is correct. That means <span
+class="math inline">\(y_i = 1\)</span> Now we let <span
+class="math inline">\(\Delta=10\)</span> and then put it into
+<strong>SVM</strong> we defined before. We can see:</p>
 </blockquote>
 <blockquote>
-<p>$$<br>
-L_i = \sum_{j \neq 1} max(0,s_j-s_1+ \Delta )=max(0,-7-		13+10)+max(0,11-13+10)<br>
-$$</p>
+<p><span class="math display">\[
+L_i = \sum_{j \neq 1} max(0,s_j-s_1+ \Delta
+)=max(0,-7-     13+10)+max(0,11-13+10)
+\]</span></p>
 </blockquote>
 <blockquote>
-<p>We find that the first item is 0 and the second is bigger than 1. That means the difference between $s_1(13)$ and $s_2(-7)$ is bigger than $\Delta (10)$ but for $s_1$ and $s_3$, that not happen.</p>
+<p>We find that the first item is 0 and the second is bigger than 1.
+That means the difference between <span
+class="math inline">\(s_1(13)\)</span> and <span
+class="math inline">\(s_2(-7)\)</span> is bigger than <span
+class="math inline">\(\Delta (10)\)</span> but for <span
+class="math inline">\(s_1\)</span> and <span
+class="math inline">\(s_3\)</span>, that not happen.</p>
 </blockquote>
-<p>So that’s the purpose of SVM: we want the score of correct class to be larger than the incorrect class at least $\Delta$. If not, we will accumulate loss.</p>
-<p>We can also write $L_i$ in another form:<br>
-$$<br>
-L_i = \sum <em>{j \neq y_i}max(w_j^Tx_i - w</em>{y_i}^T x_i + \Delta)<br>
-$$<br>
-in which $w_j$ is the j-th row of <strong>W</strong> reshaped as a column</p>
+<p>So that's the purpose of SVM: we want the score of correct class to
+be larger than the incorrect class at least <span
+class="math inline">\(\Delta\)</span>. If not, we will accumulate
+loss.</p>
+<p>We can also write <span class="math inline">\(L_i\)</span> in another
+form: <span class="math display">\[
+L_i = \sum _{j \neq y_i}max(w_j^Tx_i - w_{y_i}^T x_i + \Delta)
+\]</span> in which <span class="math inline">\(w_j\)</span> is the j-th
+row of <strong>W</strong> reshaped as a column</p>
+<ul>
+<li>Terminology: for <strong><em>max(0,-)</em></strong>, we call it
+<strong>hinge loss</strong>.</li>
+<li>Sometimes people use the squared hinge loss SVM(L2-SVM), which means
+<span class="math display">\[max(0,-)^2\]</span>. We can use
+cress-validation to choose a better one.</li>
+</ul>
 
                 
               </div>
