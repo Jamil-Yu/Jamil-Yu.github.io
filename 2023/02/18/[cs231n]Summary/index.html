@@ -18,39 +18,39 @@
   
     <meta name="description" content="cs231n: Summary [TOC] Neural Networks Image Classification: Data-driven Approach, k-Nearest Neighbor, train&#x2F;val&#x2F;test splits Image Classification Using a set of labeled images to predict categories of">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[cs231n] Module 1-Optimization: Stochastic Gradient Descent">
-<meta property="og:url" content="http://jamil-yu.github.io/2023/01/25/[cs231n]Summary/index.html">
+<meta property="og:title" content="[cs231n] Summary">
+<meta property="og:url" content="http://jamil-yu.github.io/2023/02/18/[cs231n]Summary/index.html">
 <meta property="og:site_name" content="Jamil">
 <meta property="og:description" content="cs231n: Summary [TOC] Neural Networks Image Classification: Data-driven Approach, k-Nearest Neighbor, train&#x2F;val&#x2F;test splits Image Classification Using a set of labeled images to predict categories of">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://jamil-yu.github.io/2023/01/25/[cs231n]Summary/typora-user-images/image-20230203181619887.png">
-<meta property="og:image" content="http://jamil-yu.github.io/2023/01/25/[cs231n]Summary/typora-user-images/image-20230203184649909.png">
-<meta property="og:image" content="http://jamil-yu.github.io/2023/01/25/[cs231n]Summary/typora-user-images/image-20230203191407300.png">
-<meta property="og:image" content="http://jamil-yu.github.io/2023/01/25/[cs231n]Summary/typora-user-images/image-20230203191516168.png">
-<meta property="og:image" content="http://jamil-yu.github.io/2023/01/25/[cs231n]Summary/typora-user-images/image-20230203202320171.png">
-<meta property="og:image" content="http://jamil-yu.github.io/2023/01/25/[cs231n]Summary/typora-user-images/image-20230207121144890.png">
-<meta property="og:image" content="http://jamil-yu.github.io/2023/01/25/[cs231n]Summary/typora-user-images/image-20230207123419875.png">
-<meta property="og:image" content="http://jamil-yu.github.io/2023/01/25/[cs231n]Summary/typora-user-images/image-20230207123435272.png">
-<meta property="og:image" content="http://jamil-yu.github.io/2023/01/25/[cs231n]Summary/typora-user-images/image-20230207144339020.png">
-<meta property="og:image" content="http://jamil-yu.github.io/2023/01/25/[cs231n]Summary/typora-user-images/image-20230207205258779.png">
-<meta property="og:image" content="http://jamil-yu.github.io/2023/01/25/[cs231n]Summary/typora-user-images/image-20230207210235489.png">
-<meta property="og:image" content="http://jamil-yu.github.io/2023/01/25/[cs231n]Summary/typora-user-images/image-20230207210422908.png">
-<meta property="og:image" content="http://jamil-yu.github.io/2023/01/25/[cs231n]Summary/typora-user-images/image-20230207211414465.png">
-<meta property="og:image" content="http://jamil-yu.github.io/2023/01/25/[cs231n]Summary/typora-user-images/image-20230207213105160.png">
-<meta property="og:image" content="http://jamil-yu.github.io/2023/01/25/[cs231n]Summary/typora-user-images/image-20230208141840955.png">
-<meta property="og:image" content="http://jamil-yu.github.io/2023/01/25/[cs231n]Summary/typora-user-images/image-20230208144748173.png">
-<meta property="og:image" content="http://jamil-yu.github.io/2023/01/25/[cs231n]Summary/typora-user-images/image-20230208152427080.png">
-<meta property="og:image" content="http://jamil-yu.github.io/2023/01/25/[cs231n]Summary/typora-user-images/image-20230210153134566.png">
-<meta property="article:published_time" content="2023-01-25T14:27:33.000Z">
-<meta property="article:modified_time" content="2023-03-03T06:37:57.628Z">
+<meta property="og:image" content="http://jamil-yu.github.io/typora-user-images/image-20230203181619887.png">
+<meta property="og:image" content="http://jamil-yu.github.io/typora-user-images/image-20230203184649909.png">
+<meta property="og:image" content="http://jamil-yu.github.io/typora-user-images/image-20230203191407300.png">
+<meta property="og:image" content="http://jamil-yu.github.io/typora-user-images/image-20230203191516168.png">
+<meta property="og:image" content="http://jamil-yu.github.io/typora-user-images/image-20230203202320171.png">
+<meta property="og:image" content="http://jamil-yu.github.io/typora-user-images/image-20230207121144890.png">
+<meta property="og:image" content="http://jamil-yu.github.io/typora-user-images/image-20230207123419875.png">
+<meta property="og:image" content="http://jamil-yu.github.io/typora-user-images/image-20230207123435272.png">
+<meta property="og:image" content="http://jamil-yu.github.io/typora-user-images/image-20230207144339020.png">
+<meta property="og:image" content="http://jamil-yu.github.io/typora-user-images/image-20230207205258779.png">
+<meta property="og:image" content="http://jamil-yu.github.io/typora-user-images/image-20230207210235489.png">
+<meta property="og:image" content="http://jamil-yu.github.io/typora-user-images/image-20230207210422908.png">
+<meta property="og:image" content="http://jamil-yu.github.io/typora-user-images/image-20230207211414465.png">
+<meta property="og:image" content="http://jamil-yu.github.io/typora-user-images/image-20230207213105160.png">
+<meta property="og:image" content="http://jamil-yu.github.io/typora-user-images/image-20230208141840955.png">
+<meta property="og:image" content="http://jamil-yu.github.io/typora-user-images/image-20230208144748173.png">
+<meta property="og:image" content="http://jamil-yu.github.io/typora-user-images/image-20230208152427080.png">
+<meta property="og:image" content="http://jamil-yu.github.io/typora-user-images/image-20230210153134566.png">
+<meta property="article:published_time" content="2023-02-18T14:27:33.000Z">
+<meta property="article:modified_time" content="2023-03-03T06:52:24.664Z">
 <meta property="article:author" content="Jamil Yu">
 <meta property="article:tag" content="notes">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://jamil-yu.github.io/2023/01/25/[cs231n]Summary/typora-user-images/image-20230203181619887.png">
+<meta name="twitter:image" content="http://jamil-yu.github.io/typora-user-images/image-20230203181619887.png">
   
   
   
-  <title>[cs231n] Module 1-Optimization: Stochastic Gradient Descent - Jamil</title>
+  <title>[cs231n] Summary - Jamil</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -216,7 +216,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="[cs231n] Module 1-Optimization: Stochastic Gradient Descent"></span>
+            <span id="subtitle" data-typed-text="[cs231n] Summary"></span>
           
         </div>
 
@@ -227,8 +227,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-01-25 22:27" pubdate>
-          January 25, 2023 pm
+        <time datetime="2023-02-18 22:27" pubdate>
+          February 18, 2023 pm
         </time>
       </span>
     
@@ -288,7 +288,7 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">[cs231n] Module 1-Optimization: Stochastic Gradient Descent</h1>
+            <h1 style="display: none">[cs231n] Summary</h1>
             
             
               <div class="markdown-body">
@@ -315,7 +315,7 @@ classifier predict.</li>
 the test image.</p>
 <h4 id="validation-set-cross-validation">Validation set,
 cross-validation</h4>
-<p><img src="typora-user-images\image-20230203181619887.png" srcset="/img/loading.gif" lazyload alt="image-20230203181619887" style="zoom:80%;" /></p>
+<p><img src="/typora-user-images/image-20230203181619887.png" srcset="/img/loading.gif" lazyload alt="image-20230203181619887" style="zoom:80%;" /></p>
 <p>In this picture, fold 5 is the validation set. For cross-validation,
 we let fold 1-5 be validation set separately to help us choose some
 hyperparameters.</p>
@@ -333,7 +333,7 @@ class="math inline">\(b\)</span> is bias.<br />
 f(x_i,W,b)=Wx_i+b
 \]</span> Sometimes we can extend <span
 class="math inline">\(W\)</span>:</p>
-<p><img src="typora-user-images\image-20230203184649909.png" srcset="/img/loading.gif" lazyload alt="image-20230203184649909" style="zoom: 67%;" /></p>
+<p><img src="/typora-user-images/image-20230203184649909.png" srcset="/img/loading.gif" lazyload alt="image-20230203184649909" style="zoom: 67%;" /></p>
 <h5 id="preprocessing-center-the-data">Preprocessing: center the
 data</h5>
 <p>For photos, pixel value: [0~255]</p>
@@ -369,9 +369,9 @@ target="_blank" rel="noopener" href="https://cs231n.github.io/optimization-1/">O
 Gradient Descent</a></h3>
 <h4 id="visualizing-the-loss-function">Visualizing the loss
 function</h4>
-<p><img src="typora-user-images\image-20230203191407300.png" srcset="/img/loading.gif" lazyload alt="image-20230203191407300" style="zoom:80%;" /></p>
+<p><img src="/typora-user-images/image-20230203191407300.png" srcset="/img/loading.gif" lazyload alt="image-20230203191407300" style="zoom:80%;" /></p>
 <figure>
-<img src="typora-user-images\image-20230203191516168.png" srcset="/img/loading.gif" lazyload
+<img src="/typora-user-images/image-20230203191516168.png" srcset="/img/loading.gif" lazyload
 alt="image-20230203191516168" />
 <figcaption aria-hidden="true">image-20230203191516168</figcaption>
 </figure>
@@ -414,7 +414,7 @@ Intuitions</a></h3>
 <p>Make good use of chain rule</p>
 <p><strong>Ex</strong></p>
 <figure>
-<img src="typora-user-images\image-20230203202320171.png" srcset="/img/loading.gif" lazyload
+<img src="/typora-user-images/image-20230203202320171.png" srcset="/img/loading.gif" lazyload
 alt="image-20230203202320171" />
 <figcaption aria-hidden="true">image-20230203202320171</figcaption>
 </figure>
@@ -427,7 +427,7 @@ alt="image-20230203202320171" />
 target="_blank" rel="noopener" href="https://cs231n.github.io/neural-networks-1/">Neural Networks Part
 1: Setting up the Architecture</a></h3>
 <figure>
-<img src="typora-user-images\image-20230207121144890.png" srcset="/img/loading.gif" lazyload
+<img src="/typora-user-images/image-20230207121144890.png" srcset="/img/loading.gif" lazyload
 alt="image-20230207121144890" />
 <figcaption aria-hidden="true">image-20230207121144890</figcaption>
 </figure>
@@ -459,14 +459,14 @@ functions</h4>
 <p>​ Shortcomings:</p>
 <p>​ 1. kill gradients</p>
 <p>​ 2. not zero-centered</p>
-<p><img src="typora-user-images\image-20230207123419875.png" srcset="/img/loading.gif" lazyload alt="image-20230207123419875" style="zoom:50%;" /></p>
+<p><img src="/typora-user-images/image-20230207123419875.png" srcset="/img/loading.gif" lazyload alt="image-20230207123419875" style="zoom:50%;" /></p>
 <ul>
 <li><strong>Tanh</strong></li>
 </ul>
 <p><span class="math display">\[
 tanh(x)=2\sigma(2x)-1
 \]</span></p>
-<p><img src="typora-user-images\image-20230207123435272.png" srcset="/img/loading.gif" lazyload alt="image-20230207123435272" style="zoom:50%;" /></p>
+<p><img src="/typora-user-images/image-20230207123435272.png" srcset="/img/loading.gif" lazyload alt="image-20230207123435272" style="zoom:50%;" /></p>
 <p>​ Solve the problem of not zero-centered</p>
 <ul>
 <li><strong>ReLU</strong></li>
@@ -539,7 +539,7 @@ original (but zero-centered) data into the eigenbasis:</p>
 <p>For <strong>whitening</strong>:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># whiten the data:</span><br><span class="hljs-comment"># divide by the eigenvalues (which are square roots of the singular values)</span><br>Xwhite = Xrot / np.sqrt(S + <span class="hljs-number">1e-5</span>)<br></code></pre></td></tr></table></figure>
 <figure>
-<img src="typora-user-images\image-20230207144339020.png" srcset="/img/loading.gif" lazyload
+<img src="/typora-user-images/image-20230207144339020.png" srcset="/img/loading.gif" lazyload
 alt="image-20230207144339020" />
 <figcaption aria-hidden="true">image-20230207144339020</figcaption>
 </figure>
@@ -633,7 +633,7 @@ to high.</li>
 <li>be careful with h</li>
 </ul>
 <figure>
-<img src="typora-user-images\image-20230207205258779.png" srcset="/img/loading.gif" lazyload
+<img src="/typora-user-images/image-20230207205258779.png" srcset="/img/loading.gif" lazyload
 alt="image-20230207205258779" />
 <figcaption aria-hidden="true">image-20230207205258779</figcaption>
 </figure>
@@ -646,13 +646,13 @@ sanity checks Tips/Tricks</h4>
 <ul>
 <li>Trace loss function</li>
 </ul>
-<p><img src="typora-user-images\image-20230207210235489.png" srcset="/img/loading.gif" lazyload alt="image-20230207210235489" style="zoom:80%;" /></p>
+<p><img src="/typora-user-images/image-20230207210235489.png" srcset="/img/loading.gif" lazyload alt="image-20230207210235489" style="zoom:80%;" /></p>
 <p>​ The right picture may mean the data is so small</p>
 <ul>
 <li>Trace train/val accuracy</li>
 </ul>
 <p>​
-<img src="typora-user-images\image-20230207210422908.png" srcset="/img/loading.gif" lazyload alt="image-20230207210422908" style="zoom:80%;" /></p>
+<img src="/typora-user-images/image-20230207210422908.png" srcset="/img/loading.gif" lazyload alt="image-20230207210422908" style="zoom:80%;" /></p>
 <ul>
 <li>Ratio of weights: updates</li>
 </ul>
@@ -663,7 +663,7 @@ sanity checks Tips/Tricks</h4>
 <li><p>First-layer Visualizations</p></li>
 </ul>
 <p>​ <strong>Ex</strong></p>
-<p><img src="typora-user-images\image-20230207211414465.png" srcset="/img/loading.gif" lazyload alt="image-20230207211414465" style="zoom:80%;" /></p>
+<p><img src="/typora-user-images/image-20230207211414465.png" srcset="/img/loading.gif" lazyload alt="image-20230207211414465" style="zoom:80%;" /></p>
 <p>​ Left: many noise. may in trouble. Right: Nice, smooth</p>
 <h4 id="parameter-updates">Parameter updates</h4>
 <h5 id="first-ordersgd-momentum-nesterov-momentum">First-order(SGD),
@@ -683,7 +683,7 @@ momentum, Nesterov momentum</h5>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">x_ahead = x + mu * v<br><span class="hljs-comment"># evaluate dx_ahead (the gradient at x_ahead instead of at x)</span><br>v = mu * v - learning_rate * dx_ahead<br>x += v<br></code></pre></td></tr></table></figure>
 <figure>
-<img src="typora-user-images\image-20230207213105160.png" srcset="/img/loading.gif" lazyload
+<img src="/typora-user-images/image-20230207213105160.png" srcset="/img/loading.gif" lazyload
 alt="image-20230207213105160" />
 <figcaption aria-hidden="true">image-20230207213105160</figcaption>
 </figure>
@@ -760,7 +760,7 @@ code base, without the need for cross-validation with multiple folds</p>
 <p><strong>Prefer random search to grid search</strong> can be easily
 understand through following image:</p>
 <figure>
-<img src="typora-user-images\image-20230208141840955.png" srcset="/img/loading.gif" lazyload
+<img src="/typora-user-images/image-20230208141840955.png" srcset="/img/loading.gif" lazyload
 alt="image-20230208141840955" />
 <figcaption aria-hidden="true">image-20230208141840955</figcaption>
 </figure>
@@ -826,7 +826,7 @@ ConvNets</h4>
 <p><strong>Convolutional Layer, Pooling Layer, Fully-Connected
 Layer</strong></p>
 <figure>
-<img src="typora-user-images\image-20230208144748173.png" srcset="/img/loading.gif" lazyload
+<img src="/typora-user-images/image-20230208144748173.png" srcset="/img/loading.gif" lazyload
 alt="image-20230208144748173" />
 <figcaption aria-hidden="true">image-20230208144748173</figcaption>
 </figure>
@@ -887,7 +887,7 @@ between each cell, called dilation.</p>
 <p>##### Pooling layer</p>
 <p>Common: Max</p>
 <figure>
-<img src="typora-user-images\image-20230208152427080.png" srcset="/img/loading.gif" lazyload
+<img src="/typora-user-images/image-20230208152427080.png" srcset="/img/loading.gif" lazyload
 alt="image-20230208152427080" />
 <figcaption aria-hidden="true">image-20230208152427080</figcaption>
 </figure>
@@ -1001,7 +1001,7 @@ target="_blank" rel="noopener" href="https://cs231n.github.io/transfer-learning/
 Fine-tuning Convolutional Neural Networks</a></h3>
 <h4 id="transfer-learning">Transfer Learning</h4>
 <figure>
-<img src="typora-user-images\image-20230210153134566.png" srcset="/img/loading.gif" lazyload
+<img src="/typora-user-images/image-20230210153134566.png" srcset="/img/loading.gif" lazyload
 alt="image-20230210153134566" />
 <figcaption aria-hidden="true">image-20230210153134566</figcaption>
 </figure>
@@ -1029,8 +1029,8 @@ alt="image-20230210153134566" />
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>[cs231n] Module 1-Optimization: Stochastic Gradient Descent</div>
-      <div>http://jamil-yu.github.io/2023/01/25/[cs231n]Summary/</div>
+      <div>[cs231n] Summary</div>
+      <div>http://jamil-yu.github.io/2023/02/18/[cs231n]Summary/</div>
     </div>
     <div class="license-meta">
       
@@ -1042,7 +1042,7 @@ alt="image-20230210153134566" />
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>January 25, 2023</div>
+          <div>February 18, 2023</div>
         </div>
       
       
@@ -1074,9 +1074,9 @@ alt="image-20230210153134566" />
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/03/03/%5BDL%5DNet/" title="">
+                      <a href="/2023/02/19/%5BDL%5DNet/" title="[DL] Net">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
+                        <span class="hidden-mobile">[DL] Net</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
