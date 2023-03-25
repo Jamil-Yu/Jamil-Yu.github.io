@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>[Semantic Segmentation] Some Classic network for Semantic Segmentation</title>
+    <link href="/2023/03/09/Semantic%20segmentation/"/>
+    <url>/2023/03/09/Semantic%20segmentation/</url>
+    
+    <content type="html"><![CDATA[<h1 id="semantic-segmentation">Semantic Segmentation</h1><ul><li>FCN</li><li>U-Net</li><li>PSPNet</li><li>Deeplab v1-3(+)</li></ul><h2 id="fcn">FCN</h2><blockquote><p>Our key insight is to build <strong>“fullyconvolutional”networks</strong> that take input of <strong>arbitrarysize</strong> and produce correspondingly-sized output with efficientinference and learning.</p></blockquote><blockquote><p>We then define <strong>a skip architecture</strong> that<strong>combines semantic information from a deep, coarse layer</strong>with appearance information from a shallow, fine layer to produceaccurate and detailed segmentations.</p></blockquote><p>Structure:</p><figure><imgsrc="/home/jamil/Jamil_Blog/source/typora-user-images/image-20230313202318039.png"alt="image-20230313202318039" /><figcaption aria-hidden="true">image-20230313202318039</figcaption></figure><p>The FCN will choose a classify network as backbone (e.g. VGGNet,ResNet). It abandon FC and replace them with Conv.</p><h4 id="details">Details:</h4><h2 id="unet">UNet</h2><p><strong>Structure:</strong></p><figure><imgsrc="/home/jamil/Jamil_Blog/source/typora-user-images/image-20230325195356603.png"alt="image-20230325195356603" /><figcaption aria-hidden="true">image-20230325195356603</figcaption></figure><h2 id="pspnet">PSPNet</h2><p><strong>Structure:</strong></p><figure><imgsrc="/home/jamil/Jamil_Blog/source/typora-user-images/image-20230325195446997.png"alt="image-20230325195446997" /><figcaption aria-hidden="true">image-20230325195446997</figcaption></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>paper</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>[DL] Basic-Net</title>
     <link href="/2023/02/19/%5BDL%5DBasic-Net/"/>
     <url>/2023/02/19/%5BDL%5DBasic-Net/</url>
