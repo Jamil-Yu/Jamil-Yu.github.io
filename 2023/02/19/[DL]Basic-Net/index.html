@@ -36,7 +36,7 @@
 <meta property="og:image" content="http://jamil-yu.github.io/typora-user-images/image-20230214201016846.png">
 <meta property="og:image" content="http://jamil-yu.github.io/typora-user-images/image-20230214201027140.png">
 <meta property="article:published_time" content="2023-02-19T14:27:33.000Z">
-<meta property="article:modified_time" content="2023-03-13T12:30:19.948Z">
+<meta property="article:modified_time" content="2023-03-25T11:59:47.087Z">
 <meta property="article:author" content="Jamil Yu">
 <meta property="article:tag" content="notes">
 <meta name="twitter:card" content="summary_large_image">
@@ -296,8 +296,8 @@
 <p>是早期（1994年）的神经网络之一，用于手写数字识别，由卷积层，池化层，全连接层组成，网络结构如下图所示</p>
 <figure>
 <img src="/typora-user-images/image-20230313201432146.png" srcset="/img/loading.gif" lazyload
-alt="image-20230313201432146" />
-<figcaption aria-hidden="true">image-20230313201432146</figcaption>
+alt="Structure of LeNet" />
+<figcaption aria-hidden="true">Structure of LeNet</figcaption>
 </figure>
 </blockquote>
 <ul>
@@ -307,8 +307,8 @@ alt="image-20230313201432146" />
 <p>是首个实用性很强的卷积神经网络由卷积操，池化层，全连接层，<strong>softmax层</strong>以及<strong>ReLU、Dropout</strong>构成。首次提出在2012年的ILSVRC大规模视觉识别竞赛上。其网络结构如下图所示：</p>
 <figure>
 <img src="/typora-user-images/image-20230313201406795.png" srcset="/img/loading.gif" lazyload
-alt="image-20230313201406795" />
-<figcaption aria-hidden="true">image-20230313201406795</figcaption>
+alt="Structure of AlexNet" />
+<figcaption aria-hidden="true">Structure of AlexNet</figcaption>
 </figure>
 </blockquote>
 <ul>
@@ -319,8 +319,8 @@ alt="image-20230313201406795" />
 <p>。在训练高级别的网络时，可以先训练低级别的网络，用前者获得的权重初始化高级别的网络，可以加速网络的收敛。网络参数如下表所示：</p>
 <figure>
 <img src="/typora-user-images/image-20230313201420238.png" srcset="/img/loading.gif" lazyload
-alt="image-20230313201420238" />
-<figcaption aria-hidden="true">image-20230313201420238</figcaption>
+alt="Structure of VGGNet" />
+<figcaption aria-hidden="true">Structure of VGGNet</figcaption>
 </figure>
 </blockquote>
 <ul>
@@ -352,8 +352,8 @@ stride = 1. 池化为全局，激活函数为Sigmoid</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">loss <span class="hljs-number">0.356</span>, train acc <span class="hljs-number">0.868</span>, test acc <span class="hljs-number">0.849</span><br><span class="hljs-number">56757.7</span> examples/sec on cuda:<span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
 <figure>
 <img src="/typora-user-images/image-20230214101934210.png" srcset="/img/loading.gif" lazyload
-alt="image-20230214101934210" />
-<figcaption aria-hidden="true">image-20230214101934210</figcaption>
+alt="result" />
+<figcaption aria-hidden="true">result</figcaption>
 </figure>
 <h2 id="alexnet">AlexNet</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">from</span> torch <span class="hljs-keyword">import</span> nn<br><span class="hljs-keyword">from</span> d2l <span class="hljs-keyword">import</span> torch <span class="hljs-keyword">as</span> d2l<br><br>net = nn.Sequential(<br>    <span class="hljs-comment"># 这里使用一个11*11的更大窗口来捕捉对象。</span><br>    <span class="hljs-comment"># 同时，步幅为4，以减少输出的高度和宽度。</span><br>    <span class="hljs-comment"># 另外，输出通道的数目远大于LeNet</span><br>    nn.Conv2d(<span class="hljs-number">1</span>, <span class="hljs-number">96</span>, kernel_size=<span class="hljs-number">11</span>, stride=<span class="hljs-number">4</span>, padding=<span class="hljs-number">1</span>), nn.ReLU(),<br>    nn.MaxPool2d(kernel_size=<span class="hljs-number">3</span>, stride=<span class="hljs-number">2</span>),<br>    <span class="hljs-comment"># 减小卷积窗口，使用填充为2来使得输入与输出的高和宽一致，且增大输出通道数</span><br>    nn.Conv2d(<span class="hljs-number">96</span>, <span class="hljs-number">256</span>, kernel_size=<span class="hljs-number">5</span>, padding=<span class="hljs-number">2</span>), nn.ReLU(),<br>    nn.MaxPool2d(kernel_size=<span class="hljs-number">3</span>, stride=<span class="hljs-number">2</span>),<br>    <span class="hljs-comment"># 使用三个连续的卷积层和较小的卷积窗口。</span><br>    <span class="hljs-comment"># 除了最后的卷积层，输出通道的数量进一步增加。</span><br>    <span class="hljs-comment"># 在前两个卷积层之后，汇聚层不用于减少输入的高度和宽度</span><br>    nn.Conv2d(<span class="hljs-number">256</span>, <span class="hljs-number">384</span>, kernel_size=<span class="hljs-number">3</span>, padding=<span class="hljs-number">1</span>), nn.ReLU(),<br>    nn.Conv2d(<span class="hljs-number">384</span>, <span class="hljs-number">384</span>, kernel_size=<span class="hljs-number">3</span>, padding=<span class="hljs-number">1</span>), nn.ReLU(),<br>    nn.Conv2d(<span class="hljs-number">384</span>, <span class="hljs-number">256</span>, kernel_size=<span class="hljs-number">3</span>, padding=<span class="hljs-number">1</span>), nn.ReLU(),<br>    nn.MaxPool2d(kernel_size=<span class="hljs-number">3</span>, stride=<span class="hljs-number">2</span>),<br>    nn.Flatten(),<br>    <span class="hljs-comment"># 这里，全连接层的输出数量是LeNet中的好几倍。使用dropout层来减轻过拟合</span><br>    nn.Linear(<span class="hljs-number">6400</span>, <span class="hljs-number">4096</span>), nn.ReLU(),<br>    nn.Dropout(p=<span class="hljs-number">0.5</span>),<br>    nn.Linear(<span class="hljs-number">4096</span>, <span class="hljs-number">4096</span>), nn.ReLU(),<br>    nn.Dropout(p=<span class="hljs-number">0.5</span>),<br>    <span class="hljs-comment"># 最后是输出层。由于这里使用Fashion-MNIST，所以用类别数为10，而非论文中的1000</span><br>    nn.Linear(<span class="hljs-number">4096</span>, <span class="hljs-number">10</span>))<br></code></pre></td></tr></table></figure>
@@ -384,8 +384,8 @@ Linear output shape:     torch.Size([1, 10])</code></pre>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 输出</span><br>loss <span class="hljs-number">0.331</span>, train acc <span class="hljs-number">0.878</span>, test acc <span class="hljs-number">0.882</span><br><span class="hljs-number">1635.7</span> examples/sec on cuda:<span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
 <figure>
 <img src="/typora-user-images/image-20230214102245051.png" srcset="/img/loading.gif" lazyload
-alt="image-20230214102245051" />
-<figcaption aria-hidden="true">image-20230214102245051</figcaption>
+alt="result" />
+<figcaption aria-hidden="true">result</figcaption>
 </figure>
 <h2 id="vggnet">VGGNet</h2>
 <p>使用块，更大更深的AlexNet</p>
@@ -430,8 +430,8 @@ Linear output shape:     torch.Size([1, 10])</code></pre>
 1091.9 examples/sec on cuda:0</code></pre>
 <figure>
 <img src="/typora-user-images/image-20230214140415757.png" srcset="/img/loading.gif" lazyload
-alt="image-20230214140415757" />
-<figcaption aria-hidden="true">image-20230214140415757</figcaption>
+alt="result" />
+<figcaption aria-hidden="true">result</figcaption>
 </figure>
 <h2 id="googlenetinception-v3">GoogleNet/Inception V3</h2>
 <p>Inception 块</p>
