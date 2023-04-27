@@ -16,22 +16,22 @@
   <meta name="author" content="Jamil Yu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="pyqt5 in Linux system(Ubuntu22.04)">
+    <meta name="description" content="Understanding and feeling...">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[Record] 配置PyQt5 (Linux系统) ">
-<meta property="og:url" content="http://jamil-yu.github.io/2023/04/16/[Record]%E9%85%8D%E7%BD%AEPyQt5%20(Linux%20%E7%B3%BB%E7%BB%9F)/index.html">
+<meta property="og:title" content="[Information Theory] 复习时的一些心得理解">
+<meta property="og:url" content="http://jamil-yu.github.io/2023/04/25/[Information%20Theory]%20%E5%A4%8D%E4%B9%A0%E6%97%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BF%83%E5%BE%97/index.html">
 <meta property="og:site_name" content="Jamil">
-<meta property="og:description" content="pyqt5 in Linux system(Ubuntu22.04)">
+<meta property="og:description" content="Understanding and feeling...">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-04-16T07:41:23.000Z">
-<meta property="article:modified_time" content="2023-04-16T12:54:56.615Z">
+<meta property="article:published_time" content="2023-04-25T05:16:18.000Z">
+<meta property="article:modified_time" content="2023-04-27T02:41:50.804Z">
 <meta property="article:author" content="Jamil Yu">
-<meta property="article:tag" content="record">
+<meta property="article:tag" content="Notes">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>[Record] 配置PyQt5 (Linux系统)  - Jamil</title>
+  <title>[Information Theory] 复习时的一些心得理解 - Jamil</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +197,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="[Record] 配置PyQt5 (Linux系统) "></span>
+            <span id="subtitle" data-typed-text="[Information Theory] 复习时的一些心得理解"></span>
           
         </div>
 
@@ -208,8 +208,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-04-16 15:41" pubdate>
-          April 16, 2023 pm
+        <time datetime="2023-04-25 13:16" pubdate>
+          April 25, 2023 pm
         </time>
       </span>
     
@@ -220,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          574 words
+          2.6k words
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
         
-          5 mins
+          22 mins
         
       </span>
     
@@ -269,43 +269,141 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">[Record] 配置PyQt5 (Linux系统) </h1>
+            <h1 style="display: none">[Information Theory] 复习时的一些心得理解</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="record配置pyqt5-linux-系统">[Record]配置PyQt5 (Linux 系统)</h1>
-<blockquote>
-<p>在Windows环境忙活了一下午都找不到东西，于是尝试使用Linux，果然方便快捷</p>
+                <h1 id="information-theory-复习时的一些心得">[Information Theory]
+复习时的一些心得</h1>
+<h2 id="chapter-2">Chapter 2</h2>
+<h3 id="一些定义">一些定义</h3>
+<h4 id="信息熵联合熵条件熵">信息熵、联合熵、条件熵</h4>
+<p>对信息熵的定义的理解：</p>
+<ul>
+<li><p>为什么要用log？</p>
+<ul>
+<li><p>对于某个概率为p的东西，我们想找一个东西描述它的信息，要满足以下条件：</p></li>
+<li><blockquote>
+<p>非负</p>
+<p>如果概率是1，信息量为0</p>
+<p>函数连续(这样比较好)</p>
+<p>如果两件事独立，一起发生的信息是单独发生的信息之和</p>
 </blockquote>
+<p>这样就可以得出<span class="math inline">\(I(p) \propto
+log\frac{1}{p}\)</span></p></li>
+</ul></li>
+<li><p>知道这个之后，<span
+class="math inline">\(H\)</span>的定义是怎么出来的？</p>
 <ul>
-<li>First, create a new environment in anaconda</li>
+<li>刚才讨论的是对于<span class="math inline">\(p\)</span>的，对于<span
+class="math inline">\(H\)</span>，就是看一个随机变量，它具有一定的概率分布，我们要求它的信息。那么显然就可以理解为它对于刚在给定概率下信息的期望(相当于求个和或者说积个分，把每个<span
+class="math inline">\(p\)</span>下贡献的信息累加起来)</li>
+<li>因此我们有了</li>
 </ul>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">conda create <span class="hljs-literal">-n</span> pyqt python=<span class="hljs-number">3.8</span><br></code></pre></td></tr></table></figure>
+<p><span class="math display">\[
+H(X) = \mathbb{E}_plog\frac{1}{p(x)}
+\]</span></p>
+<hr /></li>
+</ul>
+<p>理解了上面所说，联合熵、条件熵也就不难理解了，不过是看联合概率、条件概率罢了</p>
+<hr />
+<h4 id="信息熵的链式法则">信息熵的链式法则</h4>
+<p>对于Chain rule的理解：</p>
 <ul>
-<li>Go into the environment</li>
+<li>理解一下<span class="math inline">\(H(X,Y) = H(X) +
+H(X|Y)\)</span>即可</li>
+<li>想看看X，Y的信息，我们先知道了X的信息，此时由于X、Y之间可能存在一定的相关性，我们对Y已经有了一点点的了解，剩下的关于X，Y的信息即为H(X|Y)</li>
+<li>跟同学交流时，他说有点像是线性代数中的Cramer法则？就好像分解成一些正交空间一样。有点感觉。</li>
 </ul>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">conda activate pyqt<br></code></pre></td></tr></table></figure>
-<ul>
-<li>Install Qt Designer</li>
-</ul>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">sudo apt<span class="hljs-literal">-get</span> install qttools5<span class="hljs-literal">-dev-tools</span><br>sudo apt<span class="hljs-literal">-get</span> install qttools5<span class="hljs-literal">-dev</span><br></code></pre></td></tr></table></figure>
-<ul>
-<li>Open the Qt Designer</li>
-</ul>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">cd</span> /usr/lib/x86_64<span class="hljs-literal">-linux-gnu</span>/qt5/bin/ <br>./designer<br></code></pre></td></tr></table></figure>
-<ul>
-<li>Edit the file and save it</li>
-<li>Transform the ui into python</li>
-</ul>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">pyuic5 path/to/helloworld.ui <span class="hljs-literal">-o</span> path/to/helloworld.py<br></code></pre></td></tr></table></figure>
-<p>上面的命令生成的代码只是一些定义的函数，并没有调用，执行之后并不会有任何界面显示，需要在另外的python文件中进行import之后调用；
-如果想要在单独一个文件中执行并显示图形结果，可以使用</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">pyuic5 <span class="hljs-literal">-x</span> path/to/helloworld.ui <span class="hljs-literal">-o</span> path/to/helloworld.py<br></code></pre></td></tr></table></figure>
+<p>根据上面的第二条，似乎互信息用<span class="math inline">\(I(X,Y) =
+H(X) - H(X|Y)\)</span>来表示是很显然的一件事了</p>
+<hr />
+<h4 id="kl散度相对熵">KL散度（相对熵）</h4>
+<p>首先我们看看公式 <span class="math display">\[
+D(p||q) = \sum_{x\in
+\mathcal{X}}p(x)log\frac{p(x)}{q(x)}  =\mathbb{E}_plog\frac{p(X)}{q(X)}
+\]</span> 为了延续上面的理解方式，可以写成 <span class="math display">\[
+D(p||q) = \mathbb{E}_p(log\frac{1}{q(X)}-log\frac{1}{p(X)})
+\]</span>
+E中的第一项似乎是在一个给定值下q的信息，第二项是p的信息，好像就是信息差。而这件事是对p的期望，似乎是从p的角度看待这件事的一般，从p的角度看两者的差距。</p>
+<p>在网上找到了一种我觉得很妙的解释：</p>
 <blockquote>
-<p>感谢来自csdn的文章<a
-target="_blank" rel="noopener" href="https://blog.csdn.net/ayiya_Oese/article/details/116299610">链接</a></p>
+<p>假设P(X=0)=0.8，P(X=1)=0.2，那么我们可以用0来编码消息0，用10来编码消息1，这样平均每个消息的编码长度为：
+L(P) = 0.8 * 1 + 0.2 * 2 = 1.2 bits 这也等于X的熵H(P)。
+但是如果我们不知道X的真实概率分布P(X)，而只知道一个近似的概率分布Q(X)，那么我们可能会用不同的编码方案来传输消息。例如，假设Q(X=0)=0.5，Q(X=1)=0.5，那么我们可能会用01来编码消息0，用11来编码消息1，这样平均每个消息的编码长度为：
+L(Q) = 0.8 * 2 + 0.2 * 2 = 2 bits 这也等于X的交叉熵H(P,Q)。
+可以看出，由于我们使用了一个不准确的概率分布Q(X)来编码消息，导致了平均每个消息的编码长度增加了0.8
+bits，这就是用Q(X)来近似P(X)所造成的信息损失。这个信息损失就是KL散度D(P||Q)：
+D(P||Q) = L(Q) - L(P) = H(P,Q) - H(P) = 0.8 bits
+<strong>也就是说，KL散度衡量了如果我们使用Q(X)来代替P(X)，那么每个消息需要额外传输多少比特数。</strong></p>
 </blockquote>
+<blockquote>
+<p>回头再验证一下</p>
+</blockquote>
+<p>后来我们知道，KL散度是肯定大于0的，但是显然每个点两者信息的大小关系有可能有大有小，而最后大于0，反映了一种最优性和必然性，回头再看看。</p>
+<hr />
+<h4 id="互信息和dl-散度的关系">互信息和DL-散度的关系</h4>
+<p><span class="math display">\[
+I(X,Y) = D[p(X,Y)||p(X)p(Y)]
+\]</span></p>
+<p>这又很神奇，后面证明正的时候再看看</p>
+<hr />
+<h4 id="条件互信息">条件互信息</h4>
+<p><span class="math display">\[
+I(X;Y|Z) = H(X| Z) - H(X|Y, Z)
+\]</span></p>
+<p>这可以从信息增益的角度理解，也可以写成<span
+class="math inline">\(\mathbb{E}\)</span>的形式从KL-D的角度理解</p>
+<hr />
+<h4 id="互信息的链式法则">互信息的链式法则</h4>
+<p><span class="math display">\[
+I(X_1,X_2\cdots X_n;Y) = \sum_{i=1}^{n}I(X_i;Y|X_{i-1},\cdots,X_1)
+\]</span></p>
+<p>理解上，跟信息熵的链式法则一样，只不过之前的信息现在变成了和Y之间的互信息</p>
+<hr />
+<h4 id="条件相对熵">条件相对熵</h4>
+<p><span class="math display">\[
+D[p(y|x) || q(y|x)] = \mathbb{E}_{x,y}log\frac{p(Y|X)}{q(Y|X)}
+\]</span></p>
+<hr />
+<h4 id="相对熵的链式法则">相对熵的链式法则</h4>
+<p><span class="math display">\[
+D[p(x, y)||q(x,y)] = D[p(x)||q(x)] + D[p(y|x)||q(y|x)]
+\]</span></p>
+<p>这个要怎么很直观地理解？</p>
+<blockquote>
+<p>相对熵可以看作是两个分布之间的差异或不相似度的度量，而链式法则可以看作是一种将这种差异分解为局部差异和条件差异的方法。</p>
+</blockquote>
+<h3 id="一些推论">一些推论</h3>
+<p>首先，教材引入了Jensen不等式，这在几何上非常容易理解，不赘述</p>
+<p>结论： <span class="math display">\[
+f(x): convex\;\Rightarrow\;\mathbb{E}f(X) \ge f(\mathbb{E}X)
+\]</span> 以此证明 <span class="math display">\[
+D[p||q]\ge 0
+\]</span></p>
+<p>数学上很好证，讲讲理解 <span class="math display">\[
+H(X) = \sum_xp(x)log\frac{1}{p(x)}
+\]</span></p>
+<p><span class="math display">\[
+D[p(x)||q(x)] = \sum_x p(x)[log\frac{1}{q(x)}-log\frac{1}{p(x)}]
+\]</span></p>
+<p>我们盯着这两个式子，<span
+class="math inline">\(log\frac{1}{p(x)}\)</span>随着<span
+class="math inline">\(p(x)\)</span>的增大而减小，是否就是说，在概率大的时候我们要挑选一个小一点的东西对它进行表示，概率小的时候用大一点的东西对它进行表示，那么最后我们总共的消耗比较小（编码的角度）</p>
+<p>而对于KL散度，我们已经知道了<span
+class="math inline">\(p(x)\)</span>，那么对于每个概率点，用<span
+class="math inline">\(log\frac{1}{p(x)}\)</span>来表示应该是最优的，但是如果我们偏偏要用<span
+class="math inline">\(log\frac{1}{q(x)}\)</span>来对每个概率点表示，比如我们在P中有很大概率的时候，用了Q中有很小概率的东西进行了表示，那就造成了很大的损失，导致KL散度增加。每个点的改变的程度就是[]中的式子相减。因为函数的性质，总体加起来肯定会变大，这更说明了原来的表示的最优性。</p>
+<hr />
+<h4 id="相对熵的凸性">相对熵的凸性</h4>
+<p><span class="math display">\[
+D(\lambda p_1+(1-\lambda)p_2||\lambda q_1+(1-\lambda)q_2)\le \lambda
+D(p_1||q_1)+(1-\lambda)D(p_2||q_2)
+\]</span></p>
+<p>怎么理解？？？</p>
+<hr />
+<p>Q：单个映射是不是也可以看成一个MC？</p>
 
                 
               </div>
@@ -318,7 +416,7 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/ayiya_Oese/article/de
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/record/">#record</a>
+        <a href="/tags/Notes/">#Notes</a>
       
     </div>
   
@@ -330,8 +428,8 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/ayiya_Oese/article/de
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>[Record] 配置PyQt5 (Linux系统) </div>
-      <div>http://jamil-yu.github.io/2023/04/16/[Record]配置PyQt5 (Linux 系统)/</div>
+      <div>[Information Theory] 复习时的一些心得理解</div>
+      <div>http://jamil-yu.github.io/2023/04/25/[Information Theory] 复习时的一些心得/</div>
     </div>
     <div class="license-meta">
       
@@ -343,7 +441,7 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/ayiya_Oese/article/de
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>April 16, 2023</div>
+          <div>April 25, 2023</div>
         </div>
       
       
@@ -375,18 +473,12 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/ayiya_Oese/article/de
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/04/25/%5BInformation%20Theory%5D%20%E5%A4%8D%E4%B9%A0%E6%97%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BF%83%E5%BE%97/" title="[Information Theory] 复习时的一些心得理解">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">[Information Theory] 复习时的一些心得理解</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/03/09/Semantic%20segmentation/" title="[Semantic Segmentation] Some Classic network for Semantic Segmentation">
-                        <span class="hidden-mobile">[Semantic Segmentation] Some Classic network for Semantic Segmentation</span>
+                      <a href="/2023/04/16/%5BRecord%5D%E9%85%8D%E7%BD%AEPyQt5%20(Linux%20%E7%B3%BB%E7%BB%9F)/" title="[Record] 配置PyQt5 (Linux系统) ">
+                        <span class="hidden-mobile">[Record] 配置PyQt5 (Linux系统) </span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
