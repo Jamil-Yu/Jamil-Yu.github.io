@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>[Record] 令人抓狂的docker</title>
+    <link href="/2023/05/04/%5BRecord%5D%20%E4%BB%A4%E4%BA%BA%E6%8A%93%E7%8B%82%E7%9A%84docker/"/>
+    <url>/2023/05/04/%5BRecord%5D%20%E4%BB%A4%E4%BA%BA%E6%8A%93%E7%8B%82%E7%9A%84docker/</url>
+    
+    <content type="html"><![CDATA[<p>搞了老半天docker，仍然无法把dockerdesktop和root下的docker联系起来。好在在终端的root权限下终于可以使用带gpu的镜像了。稍微记录一下，防止摆烂一段时间后就忘记了。</p><p>安装docker：</p><p>跟着官网文档<ahref="https://docs.docker.com/engine/install/ubuntu/">这里</a>配。</p><p>为了使用gpu，还要跟着<ahref="https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#install-guide">这个链接</a>配置ContainerToolkit</p><p>因为我的整个配置过程非常混乱，不确定是否这两个就够了，等我哪天重装系统了再来看看有没有要加的（叹气</p><p>然后就是使用</p><p>首先拉一个带gpu的镜像下来，比如</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker pull nvidia/cuda:11.6.2-base-ubuntu20.04<br></code></pre></td></tr></table></figure><p>然后创造容器</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -it --gpus all --name myubuntu nvidia/cuda:11.6.2-base-ubuntu20.04<br></code></pre></td></tr></table></figure><p>参数：</p><ul><li><strong>-i</strong>: 交互式操作。</li><li><strong>-t</strong>: 终端。</li></ul><p>如果要退出，直接</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">exit<br></code></pre></td></tr></table></figure><p>如果想让容器后台运行，用-d</p><p>想要开始、停止、重启一个容器：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker start &lt;容器&gt;<br></code></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker stop &lt;容器&gt;<br></code></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker restart &lt;容器&gt;<br></code></pre></td></tr></table></figure><p>进入、离开（不关闭）容器：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker attach &lt;容器&gt;<br></code></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker exec ...<br></code></pre></td></tr></table></figure><p>更多操作可以参考<ahref="https://www.runoob.com/docker/docker-container-usage.html">菜鸟教程</a></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>record</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>[Information Theory] 复习时的一些心得理解</title>
     <link href="/2023/04/25/%5BInformation%20Theory%5D%20%E5%A4%8D%E4%B9%A0%E6%97%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BF%83%E5%BE%97/"/>
     <url>/2023/04/25/%5BInformation%20Theory%5D%20%E5%A4%8D%E4%B9%A0%E6%97%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BF%83%E5%BE%97/</url>
@@ -14,7 +33,7 @@
     
     <tags>
       
-      <tag>Notes</tag>
+      <tag>notes</tag>
       
     </tags>
     
