@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>[Human Parsing] SCHP</title>
+    <link href="/2023/05/05/%5BHuman%20Parsing%5D%20SCHP/"/>
+    <url>/2023/05/05/%5BHuman%20Parsing%5D%20SCHP/</url>
+    
+    <content type="html"><![CDATA[<h2 id="schp">SCHP</h2><blockquote><p>出发点：ground-truth中可能存在错误，影响训练。使用迭代优化的过程，不断同时提升labels和models</p></blockquote><figure><img src="\typora-user-images\image-20230505100544843.png"alt="image-20230505100544843" /><figcaption aria-hidden="true">image-20230505100544843</figcaption></figure><p>方法详细介绍：</p><p>开始给一个训练集，有图片<spanclass="math inline">\(\mathcal{X}\)</span>和不怎么精确的掩码<spanclass="math inline">\(\mathcal{Y}\)</span></p><p>目标是训练一个parser，通过<strong>模型聚合</strong>(modelaggregation)、<strong>标签提升</strong>(labelrefinement)、<strong>模型交互</strong>(interaction)。首先根据不怎么精确的标注对模型进行warm-upinitialization，然后对模型和掩码标注进行交替优化。</p><p>循环地聚合学习到的模型，以移动平均的方式细化掩码注释<spanclass="math inline">\(\mathcal{Y}\)</span>。具体来说，在某一个循环中，首先让模型从上一个被优化过的掩码中进行学习，然后通过参数化移动平均的操作把当前周期中学习到的模型权重和上一周期的模型权重进行聚合，然后用聚合后的模型来推断掩码，再通过像素移动平均操作来校正标注中的噪声，提升后的掩码标注将作为下一轮的ground-truth。</p><p>对每一个部分进行详细介绍：</p><ul><li><p>Warm-up Initialization</p><p>挺重要的</p></li><li><p>Online Model Aggregation</p><p>把不同周期得到的模型记为<spanclass="math inline">\(\{\theta_i\}_{i=1}^N\)</span> 设<spanclass="math inline">\(\theta\)</span>是在第<spanclass="math inline">\(i\)</span>轮学到的模型，上一轮使用的模型是<spanclass="math inline">\(\theta_{i-1}\)</span>，那么我们可以用移动平均的方式得到第<spanclass="math inline">\(i\)</span>轮使用的模型： <spanclass="math display">\[\theta_i=\frac{i}{i+1}\theta_{i-1}+\frac{1}{i+1}\theta\]</span>然而实验发现直接这样可能让模型表现更差，那是因为BN层在模型聚合之后参数不准确了，为了弥补这一点</p><blockquote><p>we forward all the training samples for one epoch to exactlyre-estimate the BatchNorm statistics in all BN layers as follows:</p></blockquote><p><span class="math display">\[m = (t-1)/t \\\mu_t = m\mu_{t-1}+(1-m)E[x_B] \\\sigma_t^2 = m \sigma_{t-1}^2+(1-m)Var[x_B]\]</span></p></li></ul><p>​ 其中<span class="math inline">\(t\)</span>是循环的次数，<spanclass="math inline">\(x_B\)</span>是BN层的输入特征。</p><p>​ 看起来很复杂，实际上基本没有增加复杂度。</p><ul><li><p>Online Label Refinement</p><p>把不同训练周期中得到的预测标签集表示为<spanclass="math inline">\(\{\mathcal{Y_i}\}_{i=1}^n\)</span> 跟先前类似：<span class="math display">\[\mathcal{Y_i} = \frac{i}{i+1}\mathcal{Y_{i-1}}+\frac{1}{i+1}\mathcal{Y}\]</span></p></li><li><p>Cyclical Training Strategy</p><p>为了满足在结束的时候有较小的学习率，在每一周期开始时有较大的学习率来走出局部极值，使用循环重启的余弦退火学习速率调度算法，设<spanclass="math inline">\(T\)</span>是每一个循环有的epochs数目，<spanclass="math inline">\(\eta_{min},\eta_{max}\)</span>表示结束、开始时的学习率</p><p>则： <span class="math display">\[\eta =\eta_{min}+\frac{1}{2}(\eta_{max}-\eta_{min})(1+\cos(\frac{T_{cur}}{T}\pi))\]</span></p></li></ul><p>伪代码：</p><p><img src="\typora-user-images\image-20230505154408196.png" alt="image-20230505154408196" style="zoom: 50%;" /></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>notes</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>[Human Parsing] Papers</title>
     <link href="/2023/05/04/%E6%95%B4%E7%90%86/"/>
     <url>/2023/05/04/%E6%95%B4%E7%90%86/</url>
