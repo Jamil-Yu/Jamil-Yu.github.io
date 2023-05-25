@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>[Record] 在Ubuntu22.04上配置qt5.12.3</title>
+    <link href="/2023/05/25/%5BRecord%5D%20%E5%9C%A8Ubuntu22.04%E4%B8%8A%E9%85%8D%E7%BD%AEqt5.12.3/"/>
+    <url>/2023/05/25/%5BRecord%5D%20%E5%9C%A8Ubuntu22.04%E4%B8%8A%E9%85%8D%E7%BD%AEqt5.12.3/</url>
+    
+    <content type="html"><![CDATA[<h1 id="record-在ubuntu22.04上配置qt5.13.2">[Record]在Ubuntu22.04上配置qt5.13.2</h1><p>因为要用qt制作ui界面完成数据结构大作业，因此在这里记录一下环境配置过程</p><p>环境：</p><ul><li>Linux(Ubuntu 22.04 LTS)</li></ul><h2 id="安装步骤">安装步骤</h2><ul><li>首先安装必要的工具</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt-get install build-essential libgl1-mesa-dev<br></code></pre></td></tr></table></figure><ul><li><p>进入<ahref="https://download.qt.io/archive/qt/5.13/5.13.2/">此链接</a></p></li><li><p>安装<ahref="https://download.qt.io/archive/qt/5.13/5.13.2/qt-opensource-linux-x64-5.13.2.run">qt-opensource-linux-x64-5.13.2.run</a></p></li><li><p>进入安装的路径，为安装程序赋予权限并运行</p></li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">chmod +x qt-opensource-linux-x64-5.13.2.run <br>sudo ./qt-opensource-linux-x64-5.13.2.run<br></code></pre></td></tr></table></figure><ul><li>一直点下一步，选择要安装的东西</li><li><figure><img src="/typora-user-images/image-20230525141446695.png"alt="image-20230525141446695" /><figcaption aria-hidden="true">image-20230525141446695</figcaption></figure></li><li>设置环境变量</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo vim /etc/profile<br></code></pre></td></tr></table></figure><p>​ 增加以下内容：</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-built_in">export</span> <span class="hljs-attribute">PATH</span>=<span class="hljs-string">&quot;/opt/Qt5.13.2/Tools/QtCreator/bin:<span class="hljs-variable">$PATH</span>&quot;</span><br><span class="hljs-built_in">export</span> <span class="hljs-attribute">PATH</span>=<span class="hljs-string">&quot;/opt/Qt5.13.2/5.13.2/gcc_64/bin:<span class="hljs-variable">$PATH</span>&quot;</span><br></code></pre></td></tr></table></figure><ul><li>wq保存退出，修改环境变量：</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">source /etc/profile<br></code></pre></td></tr></table></figure><p>安装成功。其中，QtCreator默认在以下目录中</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">/opt/</span>Qt5.<span class="hljs-number">13.2</span><span class="hljs-regexp">/Tools/</span>QtCreator/bin<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>record</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>[Human Parsing] SCHP</title>
     <link href="/2023/05/05/%5BHuman%20Parsing%5D%20SCHP/"/>
     <url>/2023/05/05/%5BHuman%20Parsing%5D%20SCHP/</url>
