@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="c:\Users\12484\AppData\Roaming\Typora\typora-user-images\image-20230612153201543.png">
 <meta property="article:published_time" content="2023-06-12T07:41:23.000Z">
-<meta property="article:modified_time" content="2023-06-14T07:26:14.388Z">
+<meta property="article:modified_time" content="2023-06-14T08:03:41.916Z">
 <meta property="article:author" content="Jamil Yu">
 <meta property="article:tag" content="notes">
 <meta name="twitter:card" content="summary_large_image">
@@ -233,7 +233,7 @@
         
         
         
-          140 mins
+          142 mins
         
       </span>
     
@@ -487,8 +487,8 @@ e^{\hat{w}_c^T\hat{x}}
 \end{bmatrix}
 \]</span></p>
 <p>将交叉熵函数作为损失函数： <span class="math display">\[
-J(\hat{W}) = \frac{1}{n} \sum_{i=1}^n \left[\sum_{j=1}^c\delta(y_i =
-j)\ln{p_j(\hat{x_i;\hat{W}})}\right]
+J(\hat{W}) = -\frac{1}{n} \sum_{i=1}^n \left[\sum_{j=1}^c\delta(y_i =
+j)\ln{p_j(\hat{x_i};\hat{W}})\right]
 \]</span> 可以用SGD来求解</p>
 <h4 id="线性判别分析fisher判别分析">线性判别分析(Fisher判别分析)</h4>
 <p><strong>LDA</strong></p>
@@ -1134,12 +1134,19 @@ y_i)\}\)</span>, 无标记数据<span class="math inline">\(\mathcal{U} =
 <p><strong>综合方法</strong></p>
 <p>将评价指标与搜索策略相结合</p>
 <ul>
-<li><p>过滤式 特征选择与学习器学习独立 如Relief</p></li>
+<li><p>过滤式 特征选择与学习器学习独立 如Relief
+选取指定个数的最大相关统计量的特征或选取相关度高于一定阈值的特征
+与猜中近邻的距离小则相关统计量大，与猜错近邻的距离大则相关统计量大
+优点：复杂度正比于采样数、样本数、特征维度，效率高
+不足：只能处理两类问题
+拓展到多分类：猜中近邻为相同样本最近邻，猜错近邻为每一不同类别样本最近邻</p></li>
 <li><p>包裹式
-特征选择与学习器关联，直接利用学习器的性能作为特征子集评价准则
-如LVW。量身定做但是代价比较高</p></li>
+特征选择与学习器关联，直接利用学习器的性能作为特征子集评价准则 如LVW。
+随机产生特征子集，交叉验证评估特征子集质量，选择是否接受（性能更好或者性能一样但是维度更低）
+优点：直接用目标分类器评估，量身定做 缺点：代价比较高</p></li>
 <li><p>嵌入式</p>
-<p>特征选择与学习器融为一体，如LASSO</p></li>
+<p>特征选择与学习器融为一体，可以同时优化——自动舍弃不对的。还可以用正则项来约束
+经典方法：LASSO L1范数更容易获得稀疏解(画图可以理解)</p></li>
 </ul>
 <h2 id="老师说的重点">老师说的重点</h2>
 <p>C1</p>
