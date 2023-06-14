@@ -24,7 +24,7 @@
 <meta property="og:description" content="Understanding and feeling...">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-25T05:16:18.000Z">
-<meta property="article:modified_time" content="2023-05-04T12:24:44.398Z">
+<meta property="article:modified_time" content="2023-06-08T06:28:11.286Z">
 <meta property="article:author" content="Jamil Yu">
 <meta property="article:tag" content="notes">
 <meta name="twitter:card" content="summary_large_image">
@@ -220,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.6k words
+          4.3k words
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
         
-          22 mins
+          36 mins
         
       </span>
     
@@ -276,6 +276,11 @@
                 
                 <h1 id="information-theory-复习时的一些心得">[Information Theory]
 复习时的一些心得</h1>
+<blockquote>
+<p>注：此篇笔记对应的教材是《信息论基础》，对应英文版是《Elements of
+Information
+Theory》。此篇笔记并不详细阐述内容，而是跳跃性地讲述一些我可能不怎么正确的感受。</p>
+</blockquote>
 <h2 id="chapter-2">Chapter 2</h2>
 <h3 id="一些定义">一些定义</h3>
 <h4 id="信息熵联合熵条件熵">信息熵、联合熵、条件熵</h4>
@@ -309,11 +314,25 @@ H(X) = \mathbb{E}_plog\frac{1}{p(x)}
 <p>理解了上面所说，联合熵、条件熵也就不难理解了，不过是看联合概率、条件概率罢了</p>
 <hr />
 <h4 id="信息熵的链式法则">信息熵的链式法则</h4>
+<p><span class="math display">\[
+H(X_1, X_2, \cdots ,X_n) = \sum_{i=1}^nH(X_i|X_{i-1}, \cdots, X_1)
+\]</span></p>
+<blockquote>
+<p>顺便，互信息的链式法则：<span class="math inline">\(I(X_1, \cdots ,
+X_n;Y) = \sum_{i=1}^n I(X_i;Y|X_{i-1}, \cdots, X_1)\)</span></p>
+</blockquote>
 <p>对于Chain rule的理解：</p>
 <ul>
 <li>理解一下<span class="math inline">\(H(X,Y) = H(X) +
-H(X|Y)\)</span>即可</li>
-<li>想看看X，Y的信息，我们先知道了X的信息，此时由于X、Y之间可能存在一定的相关性，我们对Y已经有了一点点的了解，剩下的关于X，Y的信息即为H(X|Y)</li>
+H(Y|X)\)</span>即可</li>
+<li>想看看<span class="math inline">\(X,
+Y\)</span>的信息。我们先知道了<span
+class="math inline">\(X\)</span>的信息，此时由于<span
+class="math inline">\(X\)</span>、<span
+class="math inline">\(Y\)</span>之间可能存在一定的相关性，我们对<span
+class="math inline">\(X\)</span>已经有了一点点的了解，剩下的关于<span
+class="math inline">\(X, Y\)</span>的信息即为<span
+class="math inline">\(H(X|Y)\)</span></li>
 <li>跟同学交流时，他说有点像是线性代数中的Cramer法则？就好像分解成一些正交空间一样。有点感觉。</li>
 </ul>
 <p>根据上面的第二条，似乎互信息用<span class="math inline">\(I(X,Y) =
@@ -338,16 +357,15 @@ bits，这就是用Q(X)来近似P(X)所造成的信息损失。这个信息损�
 D(P||Q) = L(Q) - L(P) = H(P,Q) - H(P) = 0.8 bits
 <strong>也就是说，KL散度衡量了如果我们使用Q(X)来代替P(X)，那么每个消息需要额外传输多少比特数。</strong></p>
 </blockquote>
-<blockquote>
-<p>回头再验证一下</p>
-</blockquote>
 <p>后来我们知道，KL散度是肯定大于0的，但是显然每个点两者信息的大小关系有可能有大有小，而最后大于0，反映了一种最优性和必然性，回头再看看。</p>
+<blockquote>
+<p>学完了后面，回头看这个，感觉好显然了……</p>
+</blockquote>
 <hr />
 <h4 id="互信息和dl-散度的关系">互信息和DL-散度的关系</h4>
 <p><span class="math display">\[
 I(X,Y) = D[p(X,Y)||p(X)p(Y)]
 \]</span></p>
-<p>这又很神奇，后面证明正的时候再看看</p>
 <hr />
 <h4 id="条件互信息">条件互信息</h4>
 <p><span class="math display">\[
@@ -404,6 +422,73 @@ D(p_1||q_1)+(1-\lambda)D(p_2||q_2)
 <p>怎么理解？？？</p>
 <hr />
 <p>Q：单个映射是不是也可以看成一个MC？</p>
+<h2 id="chapter-3-渐进均分性">Chapter 3 渐进均分性</h2>
+<p>关于<strong>渐进均分性</strong></p>
+<p>这一章提出了典型集的概念。我们用抛硬币举例，抛100000次均匀硬币，全部正面朝上概率几乎为0，而50000次左右正面朝上的概率似乎大一些。渐进均分就是说，某些特定的情况（比如刚才提到的大约一半次数朝上）的概率之和将会无限趋近于1，同时，这些特定的情况本身的概率是几乎相等的。</p>
+<p>一些标记：</p>
+<ul>
+<li><p>一系列随机变量<span class="math inline">\(X_1, X_2, \cdots, X_n
+\;\;i.i.d \sim p(x)\)</span></p></li>
+<li><p>典型集<span
+class="math inline">\(A_{\varepsilon}^{(n)}\)</span></p></li>
+</ul>
+<p>则对于典型集以及处于典型集里的<span class="math inline">\((X_1, X_2,
+\cdots, X_n)\)</span>：</p>
+<ul>
+<li><span
+class="math inline">\(Pr\{A_{\varepsilon}^{(n)}\}&gt;1-\varepsilon\)</span></li>
+<li><span class="math inline">\(|A_{\varepsilon}^{(n)}|\rightarrow
+2^{nH(X)}\)</span></li>
+<li><span class="math inline">\(p(x_1, x_2, \cdots, x_n)\rightarrow
+2^{-nH(X)}\)</span></li>
+</ul>
+<h2 id="chapter-4-平稳过程的熵率">Chapter 4 平稳过程的熵率</h2>
+<p>关于<strong>平稳过程的熵率</strong></p>
+<p>熵率的定义： <span class="math display">\[
+H(\mathcal{X}) = \lim_{n\rightarrow \infty}{\frac{1}{n}H(X_1, X_2,
+\cdots, X_n)}
+\]</span> 再定义 <span class="math display">\[
+H&#39;(\mathcal{X}) = \lim_{n\rightarrow \infty}{H(X_n|X_{n-1}, \cdots ,
+X_1)}
+\]</span> 对于一个平稳随机过程，有 <span class="math display">\[
+H(\mathcal{X}) = H&#39;(\mathcal{X})
+\]</span> 对于马尔科夫过程，有 <span class="math display">\[
+H(\mathcal{X}) = H&#39;(\mathcal{X}) = H(X_2|X_1) =
+-\sum_{ij}{\mu_iP_{ij}}\log{P_{ij}}
+\]</span></p>
+<h2 id="chapter-5-数据压缩">Chapter 5 数据压缩</h2>
+<p>关于<strong>数据压缩</strong></p>
+<p>给信息编码。主要关注前缀码(即时码)。</p>
+<p>Kraft不等式： <span class="math display">\[
+\sum_iD^{-l_i}\le 1
+\]</span>
+可以推广到无穷。这个的证明非常妙！想象成一个D进制数，然后把所有编码投影到区间[0,
+1]，同时由于是即时码，取一个点会导致某个区间不可用。</p>
+<p>对于满足某一组离散分布的点，最优码长<span class="math inline">\(L
+\rightarrow H_D(X)\)</span></p>
+<h2 id="chapter-6-信息论与统计学">Chapter 6 信息论与统计学</h2>
+<p>现在我们有一个字母表<span class="math inline">\(\mathcal{X}\)</span>.
+里面的元素为<span class="math inline">\(\{a_1, a_2, \cdots,
+a_{|\mathcal{X} |}\}\)</span></p>
+<p>我们有<span
+class="math inline">\(n\)</span>个随机变量，它们都取自这个字母表。我们现在不关注每个随机变量具体取了字母表中的哪个元素，而关注统计上的情况，也就是说几个元素取了哪个字母表中元素。我们把这种分布一样的情况称为一个<strong>型</strong>，称为<span
+class="math inline">\(P\)</span>，型一样的元素组成的集合称为<strong>型类</strong><span
+class="math inline">\(T(P)\)</span>.所有型组成的集合是<span
+class="math inline">\(\mathcal{P}\)</span></p>
+<p>型总数的粗略估计： <span class="math display">\[
+|\mathcal{P_n}| \le (n+1)^{|\mathcal{X}|}
+\]</span> 型类大小估计： <span class="math display">\[
+\frac{1}{(n+1)^{|\mathcal{X}|}}2^{nH(P)}\le|T(P)|\le2^{nH(P)}
+\]</span> 在任意概率<span
+class="math inline">\(Q\)</span>下，属于型类<span
+class="math inline">\(T(P)\)</span>的概率： <span
+class="math display">\[
+Q^n(T(P)) = 2^{-nD(P||Q)}
+\]</span> 在任意概率<span class="math inline">\(Q\)</span>下，型类<span
+class="math inline">\(P\)</span>中某一元素<span
+class="math inline">\(x\)</span>的概率： <span class="math display">\[
+Q^n(x) = 2^{-n(D(P_x||Q)+H(P_x))}
+\]</span> 可以感受到均分的存在。</p>
 
                 
               </div>

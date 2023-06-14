@@ -1,0 +1,1628 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/me.jpg">
+  <link rel="icon" href="/img/me.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Jamil Yu">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="exam...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[复习] PRML">
+<meta property="og:url" content="http://jamil-yu.github.io/2023/06/12/PRML/index.html">
+<meta property="og:site_name" content="Jamil">
+<meta property="og:description" content="exam...">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:\Users\12484\AppData\Roaming\Typora\typora-user-images\image-20230612153201543.png">
+<meta property="article:published_time" content="2023-06-12T07:41:23.000Z">
+<meta property="article:modified_time" content="2023-06-14T01:48:53.879Z">
+<meta property="article:author" content="Jamil Yu">
+<meta property="article:tag" content="notes">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="c:\Users\12484\AppData\Roaming\Typora\typora-user-images\image-20230612153201543.png">
+  
+  
+  
+  <title>[复习] PRML - Jamil</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"jamil-yu.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Jamil-Yu&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-friends"></i>
+                <span>link</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="[复习] PRML"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-06-12 15:41" pubdate>
+          June 12, 2023 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          14k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          119 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">[复习] PRML</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="prml总复习">PRML总复习</h1>
+<p>[TOC]</p>
+<p>TODO：</p>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />BP</li>
+<li><input type="checkbox" disabled="" />SVM</li>
+<li><input type="checkbox" disabled="" />高斯混合聚类</li>
+<li><input type="checkbox" disabled="" />PCA</li>
+<li><input type="checkbox" disabled="" />决策树</li>
+</ul>
+<h2 id="chapter-2">Chapter 2</h2>
+<p>五步：数据获取，预处理，特征提取与选择，学习器设计，应用部署</p>
+<p><strong>机器学习</strong>：从样本集学习一个假设<span
+class="math inline">\(f(x)\)</span>使得<span
+class="math inline">\(f(x)\)</span>是问题世界模型<span
+class="math inline">\(F(x)\)</span>的一个近似。</p>
+<h4 id="knn">kNN</h4>
+<p>略</p>
+<h4 id="解决过拟合">解决过拟合</h4>
+<ul>
+<li>获取更多数据</li>
+<li>调整模型选择(比如加一些惩罚)</li>
+</ul>
+<h4 id="经验误差泛化误差">经验误差，泛化误差</h4>
+<p>前者是在训练集上，后者是在测试集上；前者反映问题难易和学习器拟合能力，后者反映模型对未知数据的预测能力。样本足够多时，两者趋于一致。</p>
+<p>经验误差大，泛化误差也大：欠拟合</p>
+<p>经验误差小，泛化误差大：过拟合</p>
+<h4 id="构建验证集">构建验证集</h4>
+<p>验证集作用：帮助选择模型，确定参数超参数</p>
+<ul>
+<li>留出法</li>
+<li>交叉验证(分K个也叫K折交叉验证)</li>
+<li>自助法(不中概率趋向于<span
+class="math inline">\(\frac{1}{e}\)</span>)</li>
+</ul>
+<h4 id="性能度量">性能度量</h4>
+<p>回归：均方误差；分类：错误率与准确率</p>
+<p><strong>PR曲线</strong></p>
+<p>查准率： <span class="math display">\[
+P = \frac{TP}{TP+FP}
+\]</span> 查全率： <span class="math display">\[
+R = \frac{TP}{TP+FN}
+\]</span> 可以根据这个绘制P-R曲线。曲线越靠右上角越好</p>
+<p><strong>ROC曲线</strong></p>
+<p>真正例率(TPR) = 灵敏度 <span class="math display">\[
+\frac{TP}{TP+FN}
+\]</span> 假正例率(FPR) = 1 - 特异度 <span class="math display">\[
+\frac{FP}{FP+TN}
+\]</span> FPR为横轴，TPR为纵轴可绘制ROC曲线，越靠近左上角越好</p>
+<h4 id="两者关系">两者关系</h4>
+<p>在样本不均衡情况下，ROC曲线保持不变，适合对学习器整体评估</p>
+<p>PR曲线聚焦于正例，受影响比较大，适合对正例率敏感的问题</p>
+<p>两者在空间上存在对应关系</p>
+<p><strong>实际应用</strong></p>
+<p>在问题中，定义 <span class="math display">\[
+AP = \int P(r)dr
+\]</span></p>
+<p>体现准确度。</p>
+<p>在<strong>语义分割</strong>任务中，通过IoU来体现</p>
+<h4 id="泛化误差的理论分析">泛化误差的理论分析</h4>
+<p>可以证明泛化误差： <span class="math display">\[
+E(f;\mathcal{D}) = var(x) + bias^2(x) + \varepsilon^2
+\]</span> 分解为方差、偏差与噪声之和。</p>
+<p><strong>偏差</strong>：刻画学习算法本身拟合能力</p>
+<p><strong>方差</strong>：刻画数据扰动造成的影响</p>
+<p><strong>噪声</strong>：刻画学习问题本身的难度</p>
+<p>欠拟合时，偏差大，通常方差也大</p>
+<p>过拟合时，方差很大</p>
+<h4 id="三个经典原理">三个经典原理</h4>
+<ul>
+<li>没有免费的午餐：不存在某种算法对所有问题都有效</li>
+<li>丑小鸭定理：分类标准是主管定义的，评估与问题定义关联</li>
+<li>奥卡姆剃刀定理：PRML系统不应选择比“必要”更复杂的系统</li>
+</ul>
+<h2 id="chapter-3">Chapter 3</h2>
+<p><strong>线性模型</strong></p>
+<p>形式化 <span class="math display">\[
+f(x) = w_1x_1 + w_2x_2 + \cdots + w_dx_d + b
+\]</span> 向量表示 <span class="math display">\[
+f(x) = w^Tx + b
+\]</span> 我们讨论回归任务和分类任务。</p>
+<p>回归任务：（基于最小平方误差准则）</p>
+<ul>
+<li>一元线性回归</li>
+<li>多元线性回归</li>
+</ul>
+<p>分类任务：</p>
+<ul>
+<li><p>线性判别分析(二/多分类) （基于Fisher准则）</p></li>
+<li><p>感知机 （基于感知机准则）</p></li>
+<li><p>Logistic回归， Softmax回归</p></li>
+</ul>
+<h4 id="一元线性回归">一元线性回归</h4>
+<p>试图学习： <span class="math display">\[
+f(x_i) = wx_i +b\;\;使得\;\;f(x_i)\approx y_i
+\]</span> 定义损失函数 <span class="math display">\[
+E_{(w,b)} = \sum_{i=1}^n (y_i -wx_i -b)^2
+\]</span> 分别对<span class="math inline">\(w,
+b\)</span>求导令其为0，解得 <span class="math display">\[
+w = \frac{\sum_i y_i (x - \bar{x})}{\sum_i x_i^2 -
+\frac{1}{n}(\sum_{i}x_i)^2}
+\]</span></p>
+<p><span class="math display">\[
+b = \frac{1}{n}\sum_i (y_i - wx_i)
+\]</span></p>
+<h4 id="多元线性回归">多元线性回归</h4>
+<p>试图学习： <span class="math display">\[
+f(x_i) = W^T x_i + b = w_1x_{i1} + \cdots + w_dx_{id} + b
+\]</span> 表示成矩阵 <span class="math display">\[
+X = \begin{pmatrix}
+x_{11} &amp; x_{12} &amp; \cdots &amp; x_{1d} &amp; 1      \\
+\vdots &amp;  &amp; \ddots       &amp;        &amp; \vdots \\
+x_{n1} &amp; x_{n2} &amp; \cdots &amp; x_{nd} &amp; 1
+\end{pmatrix}
+\]</span></p>
+<p><span class="math display">\[
+\hat{W} = (w;b)
+\]</span></p>
+<p><span class="math display">\[
+y = (y_1; y_2; \cdots ;y_n)
+\]</span></p>
+<p>则有 <span class="math display">\[
+y = X\hat{w}
+\]</span> 定义损失函数 <span class="math display">\[
+E_{\hat{W}} = (y-X\hat{W})^T(y-X\hat{W})
+\]</span> 对<span class="math inline">\(W\)</span>求导，可得 <span
+class="math display">\[
+2X^T(X\hat{W} - y) = 0
+\]</span> 若<span class="math inline">\(X^TX\)</span>满秩，则有 <span
+class="math display">\[
+\hat{W}^* = (X^TX)^{-1}X^Ty
+\]</span></p>
+<ul>
+<li>如果出现非满秩矩阵情况，说明存在多个最优解</li>
+<li>面对多个最优解，可以加入正则化，如L1, L2</li>
+</ul>
+<h4 id="广义线性回归">广义线性回归</h4>
+<p>如果有很明显的非线性关系，可以考虑 <span class="math display">\[
+g(y) = w^Tx + b
+\]</span> 则有 <span class="math display">\[
+y = g^{-1}(w^Tx+b)
+\]</span> 比如可以取<span class="math inline">\(g(\cdot) =
+\ln(\cdot)\)</span>, 则有 <span class="math display">\[
+y = e^{w^Tx+b}
+\]</span></p>
+<hr />
+<p>接下来看看分类问题</p>
+<h4 id="logistic回归">Logistic回归</h4>
+<p>回顾广义线性模型，令<span class="math inline">\(g^{-1}(z) =
+\frac{1}{1+e^{-z}}\)</span>，则有 <span class="math display">\[
+y = \frac{1}{1+e^{-(w^Tx+b)}}
+\]</span> 将<span class="math inline">\(y\)</span>视为<span
+class="math inline">\(x\)</span>属于正类的概率<span
+class="math inline">\(p(y=1|x)\)</span>，则有 <span
+class="math display">\[
+p(y=1|x) = \frac{e^{w^Tx+b}}{1+e^{w^Tx + b}}
+\]</span> 对于二分类，可以用<strong>二值交叉熵</strong>来作为损失函数
+<span class="math display">\[
+J(w) = -\frac{1}{n}\sum_{i=1}^n \left[y_i
+\ln{p(y=1|x_i)}+(1-y_i)\ln{(1-p(y=1|x_i))}\right]
+\]</span> 为了便于讨论，令<span class="math inline">\(\hat{x} =
+(x;1)\;\;\beta = (w;b)\)</span>，则有<span class="math inline">\(w^Tx+b
+= \beta^T\hat{x}\)</span>，则 <span class="math display">\[
+p_1(\hat{x};\beta) = p(y=1|\hat{x};\beta) =
+\frac{e^{\beta^T\hat{x}}}{1+e^{\beta^T\hat{x}}}
+\]</span> 则 <span class="math display">\[
+J(\beta) = -\frac{1}{n} \sum_{i=1}^n
+[y_i\ln{p_1(\hat{x_i};\beta)+(1-y_i)\ln{(1-p_1(\hat{x_i};\beta)}})]
+\]</span></p>
+<ul>
+<li>梯度下降法</li>
+</ul>
+<p><span class="math display">\[
+\beta^{t+1} = \beta^{t} - \eta \frac{\partial J(\beta)}{\partial \beta}
+\]</span></p>
+<p>其中 <span class="math display">\[
+\frac{\partial J(\beta)}{\partial \beta} = -\sum_{i=1}^n \hat{x_i}[y_i -
+p_1(\hat{x_i};\beta)]
+\]</span></p>
+<ul>
+<li>牛顿法</li>
+</ul>
+<p><span class="math display">\[
+\beta^{t+1} = \beta^t -
+(\frac{\partial^2J(\beta)}{\partial\beta\partial\beta^T})^{-1}\frac{\partial
+J(\beta)}{\partial\beta}
+\]</span></p>
+<h4 id="softmax回归">Softmax回归</h4>
+<p>适用于多分类问题</p>
+<p>描述<span class="math inline">\(x\)</span>属于第<span
+class="math inline">\(y = j\)</span>类的概率： <span
+class="math display">\[
+p(y = j|x;W) = \frac{e^{w_j^Tx + b_j}}{\sum_{k=1}^ce^{w_k^T+b_k}}
+\]</span> 同样的，为了方便 <span class="math display">\[
+\hat{x_i} = (x_i;1) \\
+\hat{w_j} = (w_j;b_j) \\
+W = [\hat{w_1}, \hat{w_2}, \cdots , \hat{w_c}]
+\]</span> 则有 <span class="math display">\[
+w_j^T x + b_j = \hat{w_j^T} \hat{x}\\
+p_j(\hat{x};\hat{W}) = p(y=j|\hat{x};\hat{W}) =
+\frac{e^{\hat{w}_j^T\hat{x}}}{\sum_{k=1}^c e^{\hat{w}_k^T\hat{x}}}
+\]</span></p>
+<p><span class="math display">\[
+f(\hat{x}; \hat{W}) = \frac{1}{\sum_{k=1}^c e^{\hat{w}_k^T\hat{x}}}
+\begin{bmatrix}
+e^{\hat{w}_1^T\hat{x}} \\
+\vdots \\
+e^{\hat{w}_c^T\hat{x}}
+\end{bmatrix}
+\]</span></p>
+<p>将交叉熵函数作为损失函数： <span class="math display">\[
+J(\hat{W}) = \frac{1}{n} \sum_{i=1}^n \left[\sum_{j=1}^c\delta(y_i =
+j)\ln{p_j(\hat{x_i;\hat{W}})}\right]
+\]</span> 可以用SGD来求解</p>
+<h4 id="线性判别分析fisher判别分析">线性判别分析(Fisher判别分析)</h4>
+<p><strong>LDA</strong></p>
+<p>基本思想：设法将样例投影到一条直线上，使得同样样例的投影点尽量接近，不同类的互相远离</p>
+<p><span class="math inline">\(X_i, n_i, \mu_i,
+S_{w_i}\)</span>分别表示第i类样本的集合、样本数、均值、类内散度</p>
+<p>两类为例，想要：</p>
+<ul>
+<li>使得类内散度尽可能小，即<span
+class="math inline">\(w^TS_{w_0}w+w^TS_{w_1}w\)</span>尽可能小</li>
+<li>使得类间离散度尽可能大，即 <span class="math inline">\(||w^T\mu_0 -
+w^T\mu_1||_2^2\)</span>尽可能大</li>
+</ul>
+<p>最大化目标函数： <span class="math display">\[
+J = \frac{||w^T\mu_0 - w^T\mu_1||_2^2}{w^TS_{w_0}w+w^TS_{w_1}w}
+\]</span> 简化计算 <span class="math display">\[
+J = \frac{w^T(\mu_0-\mu_1)(\mu_0-\mu_1)^Tw}{w^T(S_{w_0}+S_{w_1})w}
+\]</span> 定义类间散度矩阵 <span class="math display">\[
+S_b =(\mu_0-\mu_1)(\mu_0-\mu_1)^T
+\]</span> 定义类内散度矩阵 <span class="math display">\[
+S_w = S_{w0} + S_{w1} = \sum_{x\in w_0}(x-\mu_0)(x-\mu_0)^T + \sum_{x\in
+w_1}(x-\mu_1)(x-\mu_1)^T
+\]</span> 则最大化目标 <span class="math display">\[
+J = \frac{w^TS_bw}{w^TS_ww}
+\]</span> 用拉格朗日乘子法计算计算计算，最后得到 <span
+class="math display">\[
+w = S_w^{-1}(\mu_0-\mu_1)
+\]</span> <strong>多分类LDA</strong></p>
+<p>有n个类</p>
+<p>定义全局散度矩阵<span
+class="math inline">\(S_t\)</span>，类内散度矩阵<span
+class="math inline">\(S_w\)</span>，类间散度矩阵<span
+class="math inline">\(S_b\)</span></p>
+<p>最大化目标函数： <span class="math display">\[
+J(W) = \frac{\Pi_{diag}W^TS_bW}{\Pi_{diag}W^TS_WW} = \Pi_{i=1}^k
+\frac{w_i^TS_bw_i}{w_i^TS_ww_i}
+\]</span></p>
+<h4 id="感知器准则">感知器准则</h4>
+<p>目标：把两类分开，利用线性判别函数 <span class="math display">\[
+g(x) = w^Tx + b
+\]</span> 增广向量：<span class="math inline">\(y_i = (1;x_{i1}; \cdots
+; x_{id})\)</span>, <span class="math inline">\(a = (b;
+w_1;\cdots;w_d)\)</span></p>
+<p>则有 <span class="math display">\[
+g(y) = a^Ty
+\]</span> 定义<strong>线性可分性</strong>：</p>
+<p>存在权向量<span class="math inline">\(a\)</span> 使得 <span
+class="math display">\[
+\forall y \in w_1 \Rightarrow a^Ty &gt;0 \\
+\forall y \in w_2 \Rightarrow a^Ty &lt; 0
+\]</span> 则为线性可分</p>
+<p>规范化，让所有属于<span class="math inline">\(w_2\)</span>的<span
+class="math inline">\(y\)</span>取相反数，这样所有的元素都要<span
+class="math inline">\(a^Ty&gt;0\)</span></p>
+<p>这样可以得到解向量<span
+class="math inline">\(a\)</span>的一个解空间，越靠近解区中间越准确。下面定义损失函数
+<span class="math display">\[
+J_P(a) = \sum_{y\in Y} (-a^Ty)
+\]</span> 其中<span class="math inline">\(Y\)</span>为错分样本的集合</p>
+<p>利用SGD更新参数： <span class="math display">\[
+a_{k+1} = a_k - \eta_k\frac{\partial J_P(a)}{\partial a } = a_k + \eta_k
+\sum_{y\in Y_k}y
+\]</span> 也有几个不同的更新方法：</p>
+<ul>
+<li>固定增量的单样本修正方法 每次只考虑一个错分样本<span
+class="math inline">\(y^k\)</span>, 改写为<span
+class="math inline">\(a_{k+1} = a_k + y^k\)</span></li>
+<li>可变增量单样本修正方法 <span class="math inline">\(a_{k+1} = a_k +
+\eta_ky^k\)</span></li>
+</ul>
+<p>[这边可以出计算题]</p>
+<h4 id="多分类问题">多分类问题</h4>
+<p><strong>几个方法</strong></p>
+<ul>
+<li>每次只保留两类，训练一个分类器</li>
+<li>每次处理一个类别时，把其他所有类别看作一类</li>
+<li>可以把几个看作一类，几个看作一类进行分类</li>
+</ul>
+<p><strong>类别不平衡问题</strong></p>
+<ul>
+<li>阈值移动</li>
+</ul>
+<p>​ 认为若<span class="math inline">\(\frac{y}{1-y} &gt;
+\frac{m^+}{m^-}\)</span>则预测为正样本</p>
+<p>​ 或者说，比较时缩放：<span
+class="math inline">\(\frac{y&#39;}{1-y&#39;} = \frac{y}{1-y}\times
+\frac{m^-}{m^+}\)</span></p>
+<p>如果正样本数量过少</p>
+<ul>
+<li>过采样：增加正例</li>
+<li>欠采样：去除一些负例</li>
+<li>数据增广：对正例进行一些变换而不改变语义</li>
+</ul>
+<h2 id="chapter-4">Chapter 4</h2>
+<p>从线性到非线性</p>
+<ul>
+<li>之前提到过的：广义线性。但是拟合能力弱，泛化性不强。</li>
+<li>分段线性：简单，多个超平面适应性强。但是依赖手工设计。</li>
+</ul>
+<p>将提出:</p>
+<ul>
+<li>神经网络</li>
+<li>SVM</li>
+</ul>
+<h4 id="神经网络">神经网络</h4>
+<h5 id="mp神经元">MP神经元</h5>
+<p>最经典的神经元模型，略</p>
+<h5 id="hebb学习规则">Hebb学习规则</h5>
+<p>核心思想：突触前神经元<span
+class="math inline">\(j\)</span>向突触后神经元<span
+class="math inline">\(i\)</span>的重复持续的刺激可以导致突出传递效能增加，即<span
+class="math inline">\(j\)</span>到<span
+class="math inline">\(i\)</span>的权值得到加强 <span
+class="math display">\[
+\Delta w_{ij} = \eta a_j o_i
+\]</span> <span class="math inline">\(a_j\)</span>
+为突触前神经元输入值，<span
+class="math inline">\(o_i\)</span>为突触后神经元输出值</p>
+<h5 id="单层感知机">单层感知机</h5>
+<p>之前介绍过，不赘述。</p>
+<p>可用于处理与或非的问题，不能处理异或问题。</p>
+<h5 id="多层前馈神经网络">多层前馈神经网络</h5>
+<p>每层与下一层全连接，在网络拓扑上不存在环与回路</p>
+<p><strong>万有逼近定理</strong>：单一隐层，任意宽度，使用S型函数作为激活函数的前馈神经网络，可以以任意精度来近似任何从一个有限维空间到另一个有限维空间的Borel可测函数</p>
+<h5 id="误差反向传播算法bp">误差反向传播算法（BP）</h5>
+<h5 id="常见神经网络">常见神经网络</h5>
+<ul>
+<li>前馈神经网络</li>
+<li>反馈神经网络</li>
+<li>循环神经网络</li>
+<li>RBF网络
+径向基函数网络，用一个径向基函数作为隐层神经元激活函数。比如高斯径向基函数</li>
+</ul>
+<p><span class="math display">\[
+R(x-c_i) = \exp{(-\frac{1}{2\sigma^2}||x-c_i||^2)}
+\]</span></p>
+<ul>
+<li>LeNet5 典型的卷积神经网络，手写识别</li>
+<li>Hopfield网络
+属于反馈神经网络，提供了一个理解人类记忆的模型，有联想记忆的功能</li>
+<li>Boltzmann机
+基于能量的模型，为网络定义能量，能量最小化达到理想状态</li>
+<li>Elman网络
+针对语音处理，具有局部记忆单元和局部循环连接的循环神经网络</li>
+<li>LSTM 长短期记忆网络</li>
+<li>SOM网络 自组织映射网络：竞争学习类型的无监督神经网络
+输出是一个二维的神经元网格，输入代表真实世界的模式。可以用于求解旅行商问题</li>
+<li>级联相关网络
+结构自适应网络。将网络结构作为训练目标之一，开始只有输入输入层，后面逐渐加入新的隐层结点从而创建层级结构</li>
+</ul>
+<h4 id="svm">SVM</h4>
+<h2 id="chapter-5">Chapter 5</h2>
+<p><strong>概率模型</strong></p>
+<p>一些概率论的基础不再赘述，看一眼多元高斯密度函数 <span
+class="math display">\[
+p(x) = \frac{1}{(2\pi)^{d/2} |\Sigma|^{1/2}}e^{[-\frac{1}{2}
+(x-\mu)^T\Sigma^{-1}(x-\mu)]}
+\]</span> 其中<span class="math inline">\(\mu\)</span>为均值， <span
+class="math inline">\(\Sigma\)</span>为协方差</p>
+<h4 id="贝叶斯分类器">贝叶斯分类器</h4>
+<h5 id="贝叶斯决策理论">贝叶斯决策理论</h5>
+<p><span class="math display">\[
+p(w|x) = \frac{p(x|w)p(w)}{\sum_wp(w, x)}
+\]</span></p>
+<h5 id="最小错误贝叶斯决策">最小错误贝叶斯决策</h5>
+<p><span class="math display">\[
+minP(e) = \int P(e|x)p(x)dx
+\]</span></p>
+<p>决策： <span class="math display">\[
+if \;P(w_1|x)&gt; P(w_2|x), assign \;x\in w_1\\
+if \;P(w_1|x)&lt; P(w_2|x), assign \;x\in w_2
+\]</span> 等价的有 <span class="math display">\[
+\max_i p(x|w_i)p(w_i)
+\]</span> 还有一些等价形式，只是数学上简单的变换，不再赘述</p>
+<p>一些定义：</p>
+<ul>
+<li><p>第一类错误率 <span class="math inline">\(\alpha =
+\frac{FP}{FP+TN}\)</span> 假阳</p></li>
+<li><p>第二类错误率 <span class="math inline">\(\beta =
+\frac{FN}{FN+TP}\)</span> 假阴</p></li>
+<li><p>灵敏度 <span class="math inline">\(S_n = \frac{TP}{FN+TP} =
+1-\beta\)</span> 真阳中检测出多少阳</p></li>
+<li><p>特异度 <span class="math inline">\(S_p = \frac{TN}{FP+TN} =
+1-\alpha\)</span> 真阴中检测出多少阴</p></li>
+</ul>
+<p>##### 最小风险贝叶斯决策</p>
+<p>定义对于实际状态为<span
+class="math inline">\(w_j\)</span>的样本，采取策略<span
+class="math inline">\(a_i\)</span>带来的损失为<span
+class="math inline">\(\lambda(a_i, w_j)\)</span></p>
+<p>对于每一个样本x，期望损失为 <span class="math display">\[
+R(a_i| x) = \sum_{j = 1}^c \lambda(a_i, w_j)p(w_j|x)
+\]</span> 为了最小化决策期望损失<span class="math inline">\(R(a) = \int
+R(a(x)|x)p(x)dx\)</span></p>
+<p>只要对每一个样本最小化<span
+class="math inline">\(R(a_i|x)\)</span></p>
+<h5 id="判别函数">判别函数</h5>
+<p>线性判别函数： <span class="math inline">\(g_i(x) = w_i^Tx
++w_{i0}\)</span></p>
+<p>对于二分类问题，若<span class="math inline">\(g_1(x) \ge
+g_2(x)\)</span>则认为属于第一类，否则属于第二类。称<span
+class="math inline">\(g(x) = g_1(x) -
+g_2(x)\)</span>确定的平面为<strong>决策面</strong></p>
+<p>现在回到原来的贝叶斯决策分类器，看最小错误率决策，那么我们以<strong>广义似然度</strong>作为判别函数：
+<span class="math display">\[
+g_i(x) = p(x|w_i)p(w_i)
+\]</span> 其正比于后验概率。</p>
+<p>类似的，也可以采用对数似然的形式简化计算： <span
+class="math display">\[
+g_i(x) = \log{p(x|w_i)} + \log{p(w_i)}
+\]</span> 分类决策： <span class="math display">\[
+arg\max_i\;g_i(x)
+\]</span></p>
+<h5 id="正态分布下的判别函数">正态分布下的判别函数</h5>
+<p>TODO</p>
+<h4 id="概率密度函数估计">概率密度函数估计</h4>
+<p>贝叶斯决策目的是计算最大后验概率，但是先验概率和类条件概率不一定知道。要通过样本估计</p>
+<p>估计概率密度函数：</p>
+<ul>
+<li>参数方法</li>
+<li>非参数方法</li>
+</ul>
+<p>估计有效性：需要样本充足，能代表样本的真实分布，独立同分布</p>
+<h5 id="参数估计">参数估计</h5>
+<ul>
+<li>最大似然估计</li>
+<li>贝叶斯估计</li>
+</ul>
+<h6 id="最大似然估计">最大似然估计</h6>
+<p>样本D <span class="math display">\[
+L(\theta) = p(D|\theta) = p(x_1, \cdots, x_N|\theta) =
+\Pi_{i=1}^np(x_i|\theta)
+\]</span></p>
+<p><span class="math display">\[
+\hat{\theta} = argmax_{\theta}p(D|\theta)
+\]</span></p>
+<p><span class="math display">\[
+l(\theta) = \sum_{i=1}^N \ln{p(x_i|\theta)}
+\]</span></p>
+<p>求最大值，求导为0即可。</p>
+<p>高斯情况下的最大似然估计：</p>
+<p>TODO</p>
+<h6 id="贝叶斯估计">贝叶斯估计</h6>
+<p>记<span class="math inline">\(\lambda(\hat\theta,
+\theta)\)</span>为估计的损失，条件风险为<span
+class="math inline">\(R(\hat{\theta}|x) = \int \lambda(\hat{\theta},
+\theta)p(\theta|x)d\theta\)</span></p>
+<p>在平方损失函数下，可以证明 <span class="math display">\[
+\hat{\theta} = \int \theta p(\theta|D)d\theta
+\]</span> 流程：</p>
+<ul>
+<li>求先验分布<span class="math inline">\(p(\theta)\)</span></li>
+<li>求联合分布<span class="math inline">\(p(D|\theta) =
+\Pi_{i=1}^Np(x_i|\theta)\)</span></li>
+<li>求<span class="math inline">\(\theta\)</span>后验概率分布<span
+class="math inline">\(p(\theta |D)\)</span></li>
+<li>计算<span class="math inline">\(\hat{\theta} = \int \theta
+p(\theta|D)d\theta\)</span></li>
+</ul>
+<p>高斯情况下的贝叶斯估计：</p>
+<p>TODO</p>
+<h5 id="非参数估计">非参数估计</h5>
+<h6 id="直方图方法">直方图方法</h6>
+<p>N个样本，把<span class="math inline">\(x\)</span>分成<span
+class="math inline">\(k\)</span>个等间隔小窗，形成<span
+class="math inline">\(k^d\)</span>个小舱，小舱体积为<span
+class="math inline">\(V\)</span></p>
+<p>统计进入小舱的样本数<span class="math inline">\(q_i\)</span></p>
+<p>相应小窗的概率密度为<span
+class="math inline">\(\frac{q_i}{NV}\)</span></p>
+<p>随着样本数增加，小舱体积应该尽可能小，但是小舱内有充分多样本，这些样本是所有样本中很小的一部分。</p>
+<p>换个样子写： <span class="math display">\[
+\hat{p}(x) = \frac{k}{NV}
+\]</span> <span class="math inline">\(V\)</span>为指定的区域，<span
+class="math inline">\(k\)</span>为区域中样本数。选取合适的<span
+class="math inline">\(k, V\)</span></p>
+<ul>
+<li>Parzen 窗法：固定V，变化k</li>
+<li>K-近邻法：固定k，变化V</li>
+</ul>
+<h4 id="朴素贝叶斯分类器">朴素贝叶斯分类器</h4>
+<p>贝叶斯公式后验概率： <span class="math display">\[
+P(c|x) = \frac{p(c)p(x|c)}{p(x)}
+\]</span>
+想象x是很多属性，c是某个最终判定的类别。所有属性的联合概率难以直接从训练样本估计，为了简化假设它们独立
+<span class="math display">\[
+P(c|x) = \frac{P(c)}{P(x)}\Pi_{i=1}^d P(x_i|c)
+\]</span> 其中 <span class="math display">\[
+P(c) = \frac{|D_c|}{D}, P(x_i|c) = \frac{|D_{c, x_i|}}{D_c} 或 P(x_i|c)
+= \frac{1}{\sqrt{2\pi}
+\sigma_{c, i}}e^{(-\frac{(x_i - \mu_{c, i})^2}{2\sigma_{c, i}^2})}
+\]</span> <strong>TODO：看看书里的例题</strong></p>
+<p>拉普拉斯修正： <span class="math display">\[
+P(c) = \frac{|D_c|+1}{D+1}, P(x_i|c) = \frac{|D_{c, x_i}|+1}{D_c + N_i}
+\]</span></p>
+<h4 id="半朴素贝叶斯分类器">半朴素贝叶斯分类器</h4>
+<p>考虑一部分属性之间的相互关系。假设各属性在类别之外最多只依赖于一个其他属性。
+<span class="math display">\[
+P(c|x) 正比于 P(c)\Pi_{i=1}^dP(x_i|c,pa_i)
+\]</span> 确定各个属性的父属性的方法：</p>
+<ul>
+<li>SPODE
+假定各属性都依赖于同一属性（超父），再通过模型选择确定最终超父属性</li>
+<li>TAN
+通过两属性条件互信息反映相关性强弱，继而保留相关属性之间的依赖性</li>
+<li>AODE 与SPODE相比 不进行模型选择，采用集成各种模型的思路</li>
+</ul>
+<p>TODO：计算</p>
+<h4 id="贝叶斯网">贝叶斯网</h4>
+<p>有向无环图模型，节点表示随机变量，箭头表示因果关系</p>
+<h4 id="贝叶斯方法延展">贝叶斯方法延展</h4>
+<p>贝叶斯决策和贝叶斯估计都基于贝叶斯定理，解决不同问题。贝叶斯决策的任务是学习一个分类器，贝叶斯估计的目的是学习概率模型中的参数。</p>
+<p>过拟合的时候，可以考虑引入正则化。</p>
+<p>最大似然估计：参数的值看作给定量，只是不知道</p>
+<p>贝叶斯估计：参数也看成随机变量</p>
+<h4 id="决策树没写完">决策树（没写完）</h4>
+<p>定义：一种非参数监督的分类与回归方法，推理过程与人类进行分类的机制类似，根据对象属性分情况进行讨论</p>
+<p>对于一个样本，决策树的推理过程对应于一条从根节点到某一叶节点的路径，也即一个判定测试序列。</p>
+<p>if-then 序列，互斥且完备。将特征空间划分为矩形平行区域</p>
+<ul>
+<li>优点：易于理解，可以处理离散连续数据，层次反映信息量，需要数据少</li>
+<li>缺点：不稳健，数据变化造成结构大幅改变，贪心算法不能保证返回最优决策树，用分段近似不平滑不连续</li>
+</ul>
+<p>决策树的生成是一个递归问题，终止条件：</p>
+<ul>
+<li></li>
+</ul>
+<h4 id="概率图模型">概率图模型</h4>
+<p>概率图模型是一类用图来表示变量间因果或相关关系的概率模型，按图的结构可分有向图、无向图模型。</p>
+<ul>
+<li>隐马尔可夫模型：关于时序的生成式有向图模型，建模观测序列和状态序列的联合分布</li>
+<li>马尔可夫随机场：生成式无向图模型，联合概率可分解为所有极大团势函数乘积</li>
+<li>条件随机场：判别式无向图模型，看作给定观测值条件下的马尔可夫随机场，建模的是给定观测值下的条件分布</li>
+<li>精确推理
+<ul>
+<li>变量消去：无向图模型，两两向量当作极大团</li>
+<li>信念传播：无环概率图模型，先从叶节点到根节点传递消息，再从根节点到叶节点传递消息</li>
+</ul></li>
+<li>近似推理
+<ul>
+<li>采样法：比如拒绝采样</li>
+<li>变分法：用简易分布近似复杂的真实分布</li>
+</ul></li>
+<li>话题模型：生成式有向图模型，主要处理离散数据的集合</li>
+</ul>
+<h2 id="chapter-6">Chapter 6</h2>
+<p>集成学习</p>
+<h4 id="bagging">Bagging</h4>
+<p><span class="math display">\[
+H(x) = \frac{1}{T}\sum_{t=1}^Th_t(x)
+\]</span></p>
+<p>自助采样法得到数据，训练，而后各个弱分类器投票得到结果 <span
+class="math display">\[
+H(x) = arg\max_{y\in \mathcal{Y}}\sum_{t=1}^T 1(h_t(x) = y)
+\]</span> <strong>包外估计</strong>：</p>
+<p>用训练好的模型估计没有采样到的数据的结果，用结果来计算泛化误差的估计</p>
+<p><strong>随机森林</strong></p>
+<p>自助采样样本和属性，构建不同的决策树形成森林，最后决策为各个决策树投票的结果</p>
+<p>回顾之前的：偏差大意味着欠拟合，方差大意味着过拟合。Bagging算法可以降低方差。</p>
+<h4 id="boosting">Boosting</h4>
+<p><span class="math display">\[
+H(x) = \sum_t \alpha_t h_t(x)
+\]</span></p>
+<p>通过迭代更新训练样本的权重分布。对弱分类器重新加权得到强分类器，串行生成。</p>
+<p>重点介绍<strong>Adaboost算法</strong></p>
+<p>训练集：$D = {(x_1, y_1), , (x_N, y_N) } $ 其中<span
+class="math inline">\(y_i \in \mathcal{Y} =\{-1, +1 \}\)</span></p>
+<p>初始化训练数据权重分布<span class="math inline">\(D_1 = (w_{11},
+\cdots, w_{1i}, \cdots, w_{1n})\)</span>，其中<span
+class="math inline">\(w_{1i} = \frac{1}{n}\)</span></p>
+<p>对于<span class="math inline">\(t = 1, 2, \cdots, T\)</span>:</p>
+<ul>
+<li>选择一个弱分类器<span class="math inline">\(h_t(x)\)</span></li>
+</ul>
+<p><span class="math display">\[
+h_t(x) = arg\min_{h_j\in H}[\varepsilon_j = \sum_{i=1}^nw_{t,i} \cdot
+1[y_i \ne h_j(x_i)]]
+\]</span></p>
+<p>​ 也就是说从弱分类器中选错误率最小的一个作为初始的分类器</p>
+<ul>
+<li><span class="math inline">\(\alpha_t =
+\frac{1}{2}\log{(\frac{1-\varepsilon_t}{\varepsilon_t})}\)</span>
+也就是说错的约多<span class="math inline">\(\alpha\)</span>越小</li>
+<li><span class="math inline">\(w_{t+1,i} = \frac{w_{t,
+i}\exp{(-\alpha_ty_ih_t(x_i))}}{Z_t}\)</span>, <span
+class="math inline">\(Z_t =
+\sum_{i=1}^Nw_{t,i}\exp{(-\alpha_ty_ih_t(x_i))}\)</span>
+也就是说，某个样本已经被分得越好，权重越小</li>
+</ul>
+<p>最后输出 <span class="math display">\[
+H(x) = \sum_t \alpha_t h_t(x)
+\]</span> 此算法可以降低偏差。</p>
+<p>TODO：算算例题</p>
+<h4 id="stacking">Stacking</h4>
+<p>常见的结合策略有：简单平均、加权平均、绝对多数投票法、相对多数投票法、加权投票法</p>
+<p>接下来介绍学习法。</p>
+<p><img src="C:\Users\12484\AppData\Roaming\Typora\typora-user-images\image-20230612153201543.png" srcset="/img/loading.gif" lazyload alt="image-20230612153201543" style="zoom:67%;" /></p>
+<p>应用实例：</p>
+<p>TODO</p>
+<h2 id="chapter-7">Chapter 7</h2>
+<p>无监督学习</p>
+<ul>
+<li>聚类问题</li>
+<li>降维问题</li>
+<li>生成式问题</li>
+</ul>
+<h4 id="无监督聚类">无监督聚类</h4>
+<h5 id="k均值聚类算法">k均值聚类算法</h5>
+<p>思想：首先随机初始化聚类中心，而后不断更新聚类中心、更新聚类样本直到收敛</p>
+<p>有N个样本，K个类别。定义准则函数 <span class="math display">\[
+J = \sum_{i=1}^K \sum_{x\in C_i} ||x-\mu_i||^2 = \sum_{i = 1}^N
+\sum_{k=1}^K r_{ik}||x-\mu_i||^2
+\]</span> 其中<span class="math inline">\(r_{ik}\)</span>表示<span
+class="math inline">\(x_i\)</span>属于第<span
+class="math inline">\(k\)</span>个聚类。</p>
+<ul>
+<li>第一步，初始化<span class="math inline">\(\mu_k\)</span>,
+按照最优化准则产生<span class="math inline">\(r_{ik}\)</span></li>
+<li>第二步，根据<span
+class="math inline">\(r_{ik}\)</span>按照最优化准则产生<span
+class="math inline">\(\mu_k = \frac{\sum_i
+r_{ik}x_i}{\sum_{i}r_{ik}}\)</span></li>
+<li>第三步，根据<span class="math inline">\(\mu_k\)</span>产生新的<span
+class="math inline">\(r_{ik}\)</span></li>
+</ul>
+<p>k值选择：找拐点</p>
+<p>优点：高效，迭代收敛</p>
+<p>缺点：k要指定，无法处理噪声和离群数据，不利于非凸数据</p>
+<p>TODO：做例题</p>
+<h5 id="学习向量化方法">学习向量化方法</h5>
+<p>有标签，但是不一定准确</p>
+<h6 id="lvq-算法">LVQ 算法</h6>
+<p>样本<span class="math inline">\(D = \{(x_1, y_1), \cdots, (x_N, y_N)
+\}\)</span>, 每个样本由n个属性描述：<span class="math inline">\((x_{j1};
+x_{j2}; \cdots;x_{jn})\)</span></p>
+<p>输出：学习一组n维原型向量<span class="math inline">\(p_1, p_2,
+\cdots, p_q\)</span>每个原型向量代表一个聚类簇，簇标记为<span
+class="math inline">\(t_i\)</span></p>
+<p>准则函数： <span class="math display">\[
+J = arg\min_{0\le i\le q} ||x-p_i||^2
+\]</span> 关键步骤：</p>
+<p>对于每个样本<span
+class="math inline">\(x_j\)</span>找到最接近的原型<span
+class="math inline">\(p_i\)</span></p>
+<ul>
+<li>若两点相同，把<span class="math inline">\(p_i\)</span>拉向<span
+class="math inline">\(x_j\)</span> : <span
+class="math inline">\(p_i&#39; = p_i +\eta (x_j - p_i)\)</span></li>
+<li>两点不同，相反：<span class="math inline">\(p_i&#39; = p_i -\eta
+(x_j - p_i)\)</span></li>
+</ul>
+<p>TODO: 做例题</p>
+<h5 id="高斯混合聚类算法不会">高斯混合聚类算法（不会）</h5>
+<p>（？？？）</p>
+<h5 id="层次化聚类算法">层次化聚类算法</h5>
+<p>有两种方法</p>
+<ul>
+<li>自顶向下：从单个集群的所有数据开始，考虑将集群一分为二的所有可能方法选择最好的划分，对两边递归操作。</li>
+<li>自底向上：从样本自己的集群中开始，找到最好的一对以合并到一个新的集群之中。重复直到所有的簇融合在一起</li>
+</ul>
+<p>以自底向上为例：</p>
+<ul>
+<li>初始化：每个样本为一簇</li>
+<li>合并：计算任意两簇之间距离，最小的合并，记录</li>
+<li>重复</li>
+</ul>
+<p>簇划分：可以手动选择阈值</p>
+<h5 id="密度聚类">密度聚类</h5>
+<p>聚类结构不是球状时，基于聚类的算法聚类效果不好</p>
+<p>密度聚类：基于密度的聚类，假设聚类结构能通过样本分布的紧密程度来确定</p>
+<p>典型算法：DBSCAN</p>
+<ul>
+<li>若一个点的<span
+class="math inline">\(\varepsilon\)</span>邻域包含至少<span
+class="math inline">\(MinPts\)</span>个样本，则称其为一个核心点</li>
+<li>密度直达（不对称）</li>
+<li>密度可达（不对称）</li>
+<li>密度相连（对称）</li>
+</ul>
+<p>DBSCAN算法: 从核心对象出发，找到所有密度可达的构成簇。重复。</p>
+<p>优点：对噪声、离群点鲁棒，可以构成非凸簇</p>
+<p>缺点：多超参敏感，不适用一个簇内多密度情况</p>
+<h4 id="降维学习">降维学习</h4>
+<p>维度灾难：增加维度，所需训练样本数量呈指数级增加，否则过拟合</p>
+<ul>
+<li>线性方法
+<ul>
+<li>PCA</li>
+<li>LDA</li>
+</ul></li>
+<li>非线性方法
+<ul>
+<li>保留局部特征
+<ul>
+<li>重建权值LLE</li>
+<li>邻接图LE</li>
+<li>切空间Hession LLE</li>
+</ul></li>
+<li>保留全部特征
+<ul>
+<li>基于距离
+<ul>
+<li>基于欧氏距离MDS</li>
+<li>基于测地线距离ISOMAP</li>
+</ul></li>
+<li>基于核
+<ul>
+<li>核PCA</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<h5 id="主成分分析pca">主成分分析（PCA）</h5>
+<p>是一种无监督的数据降维技术，是数据从高维空间到低维子空间的正交投影变换，使得投影数据的方差最大化频率。</p>
+<p>通过线性变化，使得一组正交向量来表示原特征，新的特征向量是原特征向量的线性组合，转换后这组向量叫做主成分。</p>
+<p>核心思想：</p>
+<ul>
+<li>降维后方差尽量大</li>
+<li>降维后数据均方误差尽可能小</li>
+</ul>
+<p>在相关性最强的方向建立坐标。</p>
+<h5 id="线性判别分析">线性判别分析</h5>
+<p>Fisher判别</p>
+<p>核Fisher判别：将样本通过核函数映射到新的特征空间中</p>
+<h5 id="流形学习">流形学习</h5>
+<p>低维流形嵌入到了高维空间，在局部上仍然具有欧氏空间的性质</p>
+<p>多维尺度变换MDS：找到一个低维空间使得样本间的距离和在高维空间中的基本一致</p>
+<p>等距映射ISOMAP：引入测地距离。保持测地距离</p>
+<p>局部线性嵌入LLE：给定数据集，通过最近邻等方式构造一个数据图，然后在每一个局部区域，高维空间中样本线性重构关系在低维空间中均得以保持</p>
+<p>拉普拉斯特征映射LE：在高维空间中距离近的点在低维空间中也近，LE将问题转化为求解图拉普拉斯算子的广义特征值问题</p>
+<h2 id="chapter-8">Chapter 8</h2>
+<p>半监督</p>
+<p>有一些有标注的数据和大量无标注的数据</p>
+<p>半监督学习：让学习器不依赖外界交互、自动地利用未标记样本来提升模型的学习性能</p>
+<p>三大假设：</p>
+<ul>
+<li>平滑假设</li>
+<li>聚类假设</li>
+<li>流形假设</li>
+</ul>
+<p>归纳式半监督学习：学习一个函数来适用于训练过程中未观察到的数据</p>
+<p>直推式半监督学习：学习一个函数来预测训练集中未标记样本的数据</p>
+<h4 id="自训练方法">自训练方法</h4>
+<ul>
+<li><p>得到有标记数据<span class="math inline">\(\mathcal{L} = \{(x_i,
+y_i)\}\)</span>, 无标记数据<span class="math inline">\(\mathcal{U} =
+\{y_i\}_{j=l+1}^{l+u}\)</span>，训练出一个模型</p></li>
+<li><p>用模型预测无标记数据，得到伪标签</p></li>
+<li><p>选择伪标记中置信度较高的，认定为有标记</p></li>
+<li><p>循环</p></li>
+</ul>
+<p>评价：构成分离的簇，置信度较高的往往正确；正确标记大多样本才能提升精度，否则可能错上加错</p>
+<h4 id="半监督生成方法">半监督生成方法</h4>
+<ul>
+<li><p>假设所有数据都是一个潜在的模型生成的，比如高斯混合模型</p></li>
+<li><p>根据最大化后验概率来预测每个样本的标签</p></li>
+<li><p>通过期望最大化(EM)迭代更新高斯混合模型的参数</p></li>
+<li><p>不断迭代到收敛</p></li>
+</ul>
+<p>评价：要求对数据分布做出假设，可以被视为一种软标签的自训练方法，所有无标记数据都被用来更新模型</p>
+<h4 id="半监督支持向量机">半监督支持向量机</h4>
+<p>试图找到将两类标记分开且穿过数据低密度区域的超平面</p>
+<p>著名方法：TSVM</p>
+<ul>
+<li>利用有标记样本学得一个SVM</li>
+<li>对未标记数据进行标记指派，将预测结果作为伪标记</li>
+<li>求出新的划分超平面和松弛向量</li>
+<li>找两个标记不同且很有可能出错的，交换</li>
+<li>重新求解更新后划分超平面和松弛向量</li>
+<li>增大未标记样本的重要性来提高影响</li>
+<li>重复3-6直到重要程度一致</li>
+</ul>
+<h4 id="基于图的半监督学习">基于图的半监督学习</h4>
+<p>构建连接相似样本的图结构，根据边的权重，将标签赋予图中未标记的节点</p>
+<p>亲和矩阵，权重大表示两个标签相同</p>
+<p>可以定义能量函数，最后实现标记传播。</p>
+<p>基于图的半监督学习属于直推学习，但是新增测试样本无法直接预测标签，需要归纳式半监督学习。可以通过引入正则化，允许偏离真实标签，惩罚偏离程度。(流形正则化问题)</p>
+<ul>
+<li>概念上很清晰</li>
+<li>计算开销大</li>
+</ul>
+<h4 id="基于分歧的方法">基于分歧的方法</h4>
+<p>借助学习器之间的“分歧”来利用未标记数据</p>
+<p>协同学习：多个学习器互相学习共同进步</p>
+<p>基本假设：</p>
+<ul>
+<li>数据拥有两个充分且条件独立的视图(充分：每个视图包含足以产生最优学习器的信息；条件独立：给定类别标记下两个视图独立)</li>
+<li>不同视图有相容性(相容性：不同视图包含的关于输出空间的信息是一致的)</li>
+</ul>
+<p>例如：网页中，文字和图片的关系</p>
+<p>一起训练，都觉得之心度高，就从伪标注样本中去除</p>
+<p>评价：简单有效，适用范围广。但是要使用这个方法，需要显著分歧的学习器，在有标记样本少、数据没有多视图时难以做到</p>
+<h2 id="chapter-9">Chapter 9</h2>
+<p>特征提取与选择</p>
+<h4 id="lbp特征">LBP特征</h4>
+<p>看一个3x3，以中间为基准，不考虑强度绝对值，只考虑相对大小。写成0，1，以左上角为起始位置，每个3x3可以写成8位二进制编码。</p>
+<p>拓展：可以把3x3推广到任意邻域</p>
+<p>解决旋转不变性：循环将每个位置作为起始点编码，选取编码最小的作为最终结果</p>
+<p>考虑多尺度：取一块块的区域，区域内像素取均值，以块为单位来比较</p>
+<p>减少编码空间：用跳变数区分，大大减少编码空间</p>
+<h4 id="sift特征">SIFT特征</h4>
+<p>尺度不变特征。检测图像的关键点用以表征和匹配成对的图像。应当与位置、光照、噪声等无关。</p>
+<ul>
+<li>检测关键点位置——通过尺度金字塔DoG</li>
+<li>精细化关键点位置——过滤低对比度点、边缘点</li>
+<li>计算关键点方向——统计得到区域主方向</li>
+<li>计算关键点描述子——堆叠多个元胞方向直方图</li>
+</ul>
+<h4 id="特征选择">特征选择</h4>
+<ul>
+<li>避免维度灾难</li>
+<li>降低计算代价</li>
+<li>排除无关干扰</li>
+<li>降低学习难度</li>
+</ul>
+<p>提升选择特征的效率：</p>
+<ul>
+<li>更高效的特征子集评价方式，避免完整交叉验证</li>
+<li>更高效特征子集搜索方式，避免枚举遍历全部子集</li>
+</ul>
+<p>评价指标</p>
+<ul>
+<li>基于距离的：类内散度小，类间距离大</li>
+<li>基于信息熵：信息熵越小，越容易区分</li>
+</ul>
+<p>特征搜索战略</p>
+<ul>
+<li>迭代搜索（不断寻找更好的特征子集划分，直到达到要求或限制）：贪心，随机</li>
+<li>前向搜索：每次都从剩下的特征中搜索选择一个最佳的</li>
+<li>后向搜索：每次从已选特征中排除一个最差的，直到满足条件</li>
+<li>双向搜索：每次加入若干特征同时剔除若干特征</li>
+</ul>
+<p>贪心搜索不一定是全局最优解</p>
+<p>随机搜索战略</p>
+<ul>
+<li>遗传算法：以染色体适应度为概率选择个体，进行交叉、变异，直到满足条件</li>
+</ul>
+<p><strong>综合方法</strong></p>
+<p>将评价指标与搜索策略相结合</p>
+<ul>
+<li><p>过滤式 特征选择与学习器学习独立 如Relief</p></li>
+<li><p>包裹式
+特征选择与学习器关联，直接利用学习器的性能作为特征子集评价准则
+如LVW。量身定做但是代价比较高</p></li>
+<li><p>嵌入式</p>
+<p>特征选择与学习器融为一体，如LASSO</p></li>
+</ul>
+<h2 id="老师说的重点">老师说的重点</h2>
+<p>C1</p>
+<p>基本概念，概念间的关系</p>
+<p>重要的人和事，华人</p>
+<p>理论流派。</p>
+<p>几个技术的背景知识，跟设计题有关。</p>
+<p>C2</p>
+<p>系统层面的模式识别和机器学习的定义</p>
+<p>五个环节要考，数据获取 预处理 特征提取选择 学习器设计 部署</p>
+<p>模型的评估与选择：经验误差泛化误差的意义</p>
+<p>知道为什么要做模型评估与选择，构建验证集，3个方法</p>
+<p>性能度量：常见任务，混淆矩阵，PR，ROC</p>
+<p>泛化误差的方差偏差的分解</p>
+<p>小结中的结论要掌握</p>
+<p>C3</p>
+<p><strong>计算题：SVM，聚类</strong></p>
+<p>线性模型的评价策略，概念</p>
+<p>机器学习三要素，优势劣势</p>
+<p>评价策略：三个策略</p>
+<p>logistic，softmax，线性判别：概念要知道。线性判别分析的核心思想优化目标，如何扩展到多分类和非线性</p>
+<p>思想和优势要掌握</p>
+<p>线性不可分什么的不考了</p>
+<p>C4</p>
+<p>历史还是在第一章）</p>
+<p>感知机是重点，能干什么不能干什么，优缺点，万有逼近</p>
+<p>BP了解下就好</p>
+<p>常见神经网络需要掌握。给你一个模型一段描述是不是合理。前馈反馈什么的对应什么模型，不同的网络解决了什么问题有什么结构</p>
+<p>支持向量机要计算，例题中选一个。如果是对偶问题会给参考公式。不会考核</p>
+<p>核函数的思想要知道，但是不会考计算</p>
+<p>C5</p>
+<p>5.1不考</p>
+<p>最小错误率和最小风险掌握啥掌握怎么算</p>
+<p>5.2.2概率密度函数估计只需要了解</p>
+<p>5.2.3了解一下</p>
+<p>169页的总结要看</p>
+<p>决策树要考，和随机森林的关系要知道</p>
+<p>信息论什么的了解</p>
+<p>概率图模型大题里面不考</p>
+<p>C6</p>
+<p>为什么要做集成学习？</p>
+<p>三个方法，异同</p>
+<p>弱分类器和强分类器的概念要掌握</p>
+<p>随机森林要考，和决策树的区别</p>
+<p>adaboost了解思想</p>
+<p>bagging和boosting的区别什么的总结</p>
+<p>stacking的策略</p>
+<p>C7</p>
+<p><strong>K-means 或 层次化 计算</strong></p>
+<p>19页无监督学习和监督学习对比</p>
+<p>聚类的目标：分别朝两个方向最优化</p>
+<p>聚类的性能好坏的度量：掌握</p>
+<p>常用聚类方法要了解，列举，知道思想</p>
+<p>高斯混合聚类不考计算题！</p>
+<p>给点，推断一下</p>
+<p>DBSCAN 概念 有缺点</p>
+<p>降维：<strong>PCA，LDA</strong></p>
+<p>维度灾难的定义，核心思想</p>
+<p>PCA要掌握</p>
+<p>流形学习：了解基本概念</p>
+<p>127页总结要重点关注</p>
+<p>C8</p>
+<p>半监督学习</p>
+<p>和无监督学习的区别。三大假设是什么。几个学习方法了解一下就好。重点看86页总结</p>
+<p>C9</p>
+<p>重点。LBP，SIFT 特点，优缺点</p>
+<p>特征选择的重要性：掌握。</p>
+<p>对于特征好坏的评价标准要了解</p>
+<p>搜索策略了解一下</p>
+<p>综合方法要考，概念和思想</p>
+<p>C10</p>
+<p>10.2网络优化的方法要掌握</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/notes/">#notes</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>[复习] PRML</div>
+      <div>http://jamil-yu.github.io/2023/06/12/PRML/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>Jamil Yu</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>June 12, 2023</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/05/25/%5BRecord%5D%20%E5%9C%A8Ubuntu22.04%E4%B8%8A%E9%85%8D%E7%BD%AEqt5.12.3/" title="[Record] 在Ubuntu22.04上配置qt5.12.3">
+                        <span class="hidden-mobile">[Record] 在Ubuntu22.04上配置qt5.12.3</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script>
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          Fluid.utils.createCssLink('https://lib.baomitu.com/disqusjs/1.3.0/disqusjs.css');
+          Fluid.utils.createScript('https://lib.baomitu.com/disqusjs/1.3.0/disqus.js', function() {
+            new DisqusJS({
+              shortname: 'fluid',
+              apikey: ''
+            });
+          });
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
