@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="c:\Users\12484\AppData\Roaming\Typora\typora-user-images\image-20230612153201543.png">
 <meta property="article:published_time" content="2023-06-12T07:41:23.000Z">
-<meta property="article:modified_time" content="2023-06-14T08:03:41.916Z">
+<meta property="article:modified_time" content="2023-06-14T14:05:10.121Z">
 <meta property="article:author" content="Jamil Yu">
 <meta property="article:tag" content="notes">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          17k words
+          18k words
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          142 mins
+          149 mins
         
       </span>
     
@@ -812,10 +812,60 @@ P(c|x) 正比于 P(c)\Pi_{i=1}^dP(x_i|c,pa_i)
 <li>优点：易于理解，可以处理离散连续数据，层次反映信息量，需要数据少</li>
 <li>缺点：不稳健，数据变化造成结构大幅改变，贪心算法不能保证返回最优决策树，用分段近似不平滑不连续</li>
 </ul>
-<p>决策树的生成是一个递归问题，终止条件：</p>
+<p>决策树的生成是一个递归问题，三个终止条件。</p>
+<p>属性选择：</p>
 <ul>
-<li></li>
+<li>根据信息增益</li>
 </ul>
+<p><span class="math display">\[
+Gain(D,x) = H(D) - H(D|x)
+\]</span></p>
+<ul>
+<li>根据信息增益率</li>
+</ul>
+<p><span class="math display">\[
+GainRatio(D, A) = \frac{Gain(D, A)}{IV(A)}\\
+IV(A) = -\sum_{v=1}^V \frac{|D^v|}{|D|}\log{\frac{|D^v|}{|D|}}
+\]</span></p>
+<p>​
+信息增益率对可取值数目较小比较小的属性有所偏好。为了避免过度偏好，C4.5算法启发式：先从候选划分属性中找出信息增益高的，再选信息增益率高的。</p>
+<ul>
+<li>基尼指数</li>
+</ul>
+<p>​ 基尼值：(越小纯度越高) <span class="math display">\[
+Gini(D) = \sum_{k=1}^{|y|}p_k(1-p_k) = 1-\sum_{i=1}^{|y|}p_k^2
+\]</span> ​ 基尼指数：(约小划分性能越好) <span class="math display">\[
+GiniIndex(D,a) = \sum_{v=1}^V\frac{|D^v|}{|D|}Gini(D^v)
+\]</span> ​ 可以看作信息熵的一阶泰勒近似</p>
+<p>剪枝的思想：</p>
+<ul>
+<li>预剪枝</li>
+</ul>
+<p>生成过程中判断当前节点划分后能否提升决策树泛化能力。不能，停止划分，标记为叶节点</p>
+<ul>
+<li>后剪枝</li>
+</ul>
+<p>先训练为完整的树，自底向上对非叶节点考察，若将该节点对应的子树替换为叶节点能提升泛化性能，则替换</p>
+<blockquote>
+<p>都用留出法来评估</p>
+</blockquote>
+<p>优点：降低过拟合风险，减少训练时间和测试时间开销</p>
+<p>缺点：可能有欠拟合风险</p>
+<p>后剪枝比预剪枝条保留了更多分支，欠拟合风险小，泛化性能往往更好，但是后剪枝训练时间开销更大</p>
+<p><strong>对于连续值的处理</strong>：</p>
+<p>二分法处理</p>
+<p>若有n个不同的取值：</p>
+<ul>
+<li>候选划分点：n-1个，取中间值</li>
+<li>计算各个划分点信息增益</li>
+<li>选取信息增益最大的为最终划分点</li>
+</ul>
+<p><strong>对于属性缺失情况的处理：</strong></p>
+<p>训练时缺失：</p>
+<p>给定划分属性，若样本在该属性上缺失——按照概率划分到不同分支</p>
+<p>划分属性时：计算信息增益要给缺失的加一个权重(就相当于之前的概率)让它影响变小</p>
+<p>测试时缺失：</p>
+<p>根据训练样本的统计分布决定放到哪个分支</p>
 <h4 id="概率图模型">概率图模型</h4>
 <p>概率图模型是一类用图来表示变量间因果或相关关系的概率模型，按图的结构可分有向图、无向图模型。</p>
 <ul>
