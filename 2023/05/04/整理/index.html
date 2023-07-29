@@ -63,7 +63,7 @@
 <meta property="og:image" content="http://jamil-yu.github.io/typora-user-images/image-20230411155830125.png">
 <meta property="og:image" content="http://jamil-yu.github.io/typora-user-images/image-20230411160205740.png">
 <meta property="article:published_time" content="2023-05-04T12:27:33.000Z">
-<meta property="article:modified_time" content="2023-05-04T13:03:54.103Z">
+<meta property="article:modified_time" content="2023-07-29T08:48:50.046Z">
 <meta property="article:author" content="Jamil Yu">
 <meta property="article:tag" content="notes">
 <meta name="twitter:card" content="summary_large_image">
@@ -260,7 +260,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.4k words
+          5.3k words
         
       </span>
     
@@ -271,7 +271,7 @@
         
         
         
-          46 mins
+          44 mins
         
       </span>
     
@@ -322,11 +322,7 @@
 </ul>
 <p>常见的方法</p>
 <ul>
-<li>联合姿态估计（关节什么的）s</li>
-</ul>
-<p>想法：</p>
-<ul>
-<li>有文章说在某一相似背景下训练出来的模型可能遇到新的背景就会识别的不好。假设ground-truth标的很对，可不可以就直接根据ground-truth先把人的轮廓扣出来，然后只对这一片地方进行特征提取，而把背景忽视或者直接用一些噪音替代，然后再其他操作，有没有可以减小背景的影响</li>
+<li>联合姿态估计（关节什么的）</li>
 </ul>
 <h2 id="atr">ATR</h2>
 <p>将人体图像分解为语义时尚/身体区域。作者将其表述为一种主动模板回归（ATR）问题，其中每个时尚/身体项的归一化掩码表示为学习的掩码模板的线性组合，然后通过包括每个语义区域的位置、比例和可见性的主动形状参数变形为更精确的掩码。掩码模板系数和主动形状参数共同可以生成人体解析结果，并因此称为人体解析的结构输出。深度卷积神经网络（CNN）用于构建输入人体图像和人体解析结构输出之间的端到端关系。更具体地说，结构输出由两个单独的网络预测。第一个CNN网络带有最大池化，并设计用于预测每个标签掩码的模板系数，而第二个网络没有最大池化以保留对标签掩码位置的敏感性并准确预测主动形状参数。对于新图像，两个网络的结构输出被融合以生成每个像素的每个标签的概率，最后使用超像素平滑来细化人体解析结果。在大型数据集上进行全面评估，充分证明了ATR框架相对于其他人体解析技术的显着优越性。特别是，我们的ATR框架通过F1分数达到64.38％，显着高于基于最先进算法[28]的44.76％</p>
@@ -644,7 +640,6 @@ alt="image-20230411155830125" />
 <figcaption aria-hidden="true">image-20230411155830125</figcaption>
 </figure>
 <p><img src="\typora-user-images\image-20230411160205740.png" srcset="/img/loading.gif" lazyload alt="image-20230411160205740" style="zoom:50%;" /></p>
-<h2 id="braidnet">BraidNet</h2>
 
                 
               </div>
